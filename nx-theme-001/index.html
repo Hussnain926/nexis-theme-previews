@@ -61,7 +61,7 @@ body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-i
 .ann span i{display:block;height:38px;line-height:38px;font-style:normal}
 .hdr{position:sticky;top:0;z-index:50;background:rgba(244,239,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .hdr-in{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;height:78px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:30px;letter-spacing:.02em}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:30px;letter-spacing:.02em;white-space:nowrap}
 .logo svg{width:30px;height:30px}
 .nav{display:flex;flex-wrap:nowrap;gap:clamp(18px,2.2vw,34px);justify-content:center;align-items:center;list-style:none;margin:0;padding:0;white-space:nowrap}
 .nav a,.nav button{background:none;border:0;padding:28px 0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
@@ -90,7 +90,7 @@ body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-i
 /* hero: oval "halo" portrait on teal */
 .hero{background:radial-gradient(120% 90% at 70% 20%,var(--teal-soft),var(--teal) 55%,var(--teal-2));color:var(--porcelain);overflow:hidden}
 .hero-in{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;min-height:min(78vh,720px);gap:40px;padding-block:48px}
-.hero h1{font-size:clamp(52px,7.4vw,112px);line-height:.96}
+.hero h1{font-size:clamp(50px,6.4vw,96px);line-height:.96}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero p.lead{max-width:40ch;margin:26px 0 34px;font-size:17px;color:#D6E0DD}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
@@ -388,7 +388,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
   .sec-head{flex-direction:column;align-items:start}
   .sticky-atc .wrap{height:68px}.sticky-atc .t{display:none}.sticky-atc .btn{flex:1;margin:0}
 }
-@media (max-width:560px){.grid4,.c-grid,.pairs{gap:22px 12px}.card .info a{font-size:14px}.pieces{grid-template-columns:repeat(3,1fr)}.trust{grid-template-columns:1fr}.ft-in{grid-template-columns:1fr}}
+@media (max-width:560px){.logo{font-size:22px;gap:7px}.logo svg{width:24px;height:24px}.grid4,.c-grid,.pairs{gap:22px 12px}.card .info a{font-size:14px}.pieces{grid-template-columns:repeat(3,1fr)}.trust{grid-template-columns:1fr}.ft-in{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -439,7 +439,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
       <div><h4>By piece</h4><ul><li><a href="#collection" data-go="collection">Necklaces</a></li><li><a href="#collection" data-go="collection">Earrings</a></li><li><a href="#collection" data-go="collection">Rings</a></li><li><a href="#collection" data-go="collection">Bracelets</a></li><li><a href="#collection" data-go="collection">Personalised</a></li></ul></div>
       <div><h4>By metal</h4><ul><li><a href="#collection" data-go="collection">18k gold vermeil</a></li><li><a href="#collection" data-go="collection">Sterling silver</a></li><li><a href="#collection" data-go="collection">Rose gold vermeil</a></li><li><a href="#collection" data-go="collection">Pearls</a></li></ul></div>
       <div><h4>Gifts</h4><ul><li><a href="#collection" data-go="collection">Gifts under £50</a></li><li><a href="#collection" data-go="collection">Engraved gifts</a></li><li><a href="#collection" data-go="collection">Gift cards</a></li><li><a href="#home" data-go="home">Build an ear stack</a></li></ul></div>
-      <div class="mega-tile"><a href="#collection" data-go="collection" style="text-decoration:none"><div class="img" style="background-image:url(img/m-ear.webp)"></div><p>The hoop edit</p></a><a href="#collection" data-go="collection" style="text-decoration:none"><div class="img" style="background-image:url(img/engraving.webp)"></div><p>Engraved signets</p></a></div>
+      <div class="mega-tile"><a href="#collection" data-go="collection" style="text-decoration:none"><div class="img" style="background-image:url(img/earstack.webp)"></div><p>The hoop edit</p></a><a href="#collection" data-go="collection" style="text-decoration:none"><div class="img" style="background-image:url(img/p-signet.webp)"></div><p>Engraved signets</p></a></div>
     </div>
   </div>
 </header>
@@ -470,7 +470,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
         <a class="tray reveal" href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-hoops.webp)"></div><div class="t"><h3>Earrings</h3><small>38</small></div></a>
         <a class="tray reveal" href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-signet.webp)"></div><div class="t"><h3>Rings</h3><small>19</small></div></a>
         <a class="tray reveal" href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-tennis.webp)"></div><div class="t"><h3>Bracelets</h3><small>16</small></div></a>
-        <a class="tray reveal" href="#collection" data-go="collection"><div class="img" style="background-image:url(img/gift.webp)"></div><div class="t"><h3>Gifts</h3><small>Boxed</small></div></a>
+        <a class="tray reveal" href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-pendant.webp)"></div><div class="t"><h3>Gifts</h3><small>Boxed</small></div></a>
       </div>
     </div>
   </section>
@@ -483,7 +483,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
   </section>
 
   <section class="split on-teal" data-dawn="image-with-text (gifting)">
-    <div class="img" style="background-image:url(img/gift.webp)" role="img" aria-label="Necklace in a teal gift box"></div>
+    <div class="img" style="background-image:url(img/editorial.webp)" role="img" aria-label="Disc pendant on teal velvet"></div>
     <div class="txt reveal">
       <span class="eyebrow">Gifting, done properly</span>
       <h2>Every piece arrives <span class="serif-i" style="color:var(--gold)">ready to give.</span></h2>
@@ -497,9 +497,9 @@ input[type=range]{accent-color:var(--teal);width:100%}
     <div class="wrap">
       <div class="tool" id="earStack">
         <div class="ear"><div class="img" style="background-image:url(img/earstack.webp)" role="img" aria-label="Ear with three piercings"></div>
-          <button class="slot active" style="left:44%;top:72%" data-slot="0" aria-label="Lobe">Lobe</button>
-          <button class="slot" style="left:52%;top:58%" data-slot="1" aria-label="Second lobe">2nd</button>
-          <button class="slot" style="left:60%;top:24%" data-slot="2" aria-label="Helix">Helix</button>
+          <button class="slot active" style="left:43%;top:64%" data-slot="0" aria-label="Lobe">Lobe</button>
+          <button class="slot" style="left:60%;top:52%" data-slot="1" aria-label="Second lobe">2nd</button>
+          <button class="slot" style="left:70%;top:32%" data-slot="2" aria-label="Helix">Helix</button>
         </div>
         <div class="side">
           <span class="eyebrow">Build your ear stack</span>
@@ -564,15 +564,15 @@ input[type=range]{accent-color:var(--teal);width:100%}
     <div class="wrap">
       <div class="sec-head reveal"><div><span class="eyebrow">The journal</span><h2>Wear it well</h2></div><a class="link" href="#blog" data-go="blog">All stories</a></div>
       <div class="journal">
-        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/vanity.webp)"></div><h3>How to care for gold vermeil</h3><p>Five habits that keep the shine for years.</p></a>
-        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/m-ear.webp)"></div><h3>The art of the ear stack</h3><p>Mixing hoops, huggies and studs without the clutter.</p></a>
-        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/flatlay.webp)"></div><h3>Finding your ring size at home</h3><p>A string, a ruler and two minutes.</p></a>
+        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/editorial.webp)"></div><h3>How to care for gold vermeil</h3><p>Five habits that keep the shine for years.</p></a>
+        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/earstack.webp)"></div><h3>The art of the ear stack</h3><p>Mixing hoops, huggies and studs without the clutter.</p></a>
+        <a class="post reveal" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/m-hand.webp)"></div><h3>Finding your ring size at home</h3><p>A string, a ruler and two minutes.</p></a>
       </div>
     </div>
   </section>
 
   <section data-dawn="collage (instagram)">
-    <div class="ugc"><div class="img" style="background-image:url(img/m-neck.webp)"></div><div class="img" style="background-image:url(img/m-hand.webp)"></div><div class="img" style="background-image:url(img/editorial.webp)"></div><div class="img" style="background-image:url(img/m-wrist.webp)"></div><div class="img" style="background-image:url(img/earstack.webp)"></div><div class="img" style="background-image:url(img/flatlay.webp)"></div></div>
+    <div class="ugc"><div class="img" style="background-image:url(img/hero.webp)"></div><div class="img" style="background-image:url(img/m-hand.webp)"></div><div class="img" style="background-image:url(img/editorial.webp)"></div><div class="img" style="background-image:url(img/editorial.webp)"></div><div class="img" style="background-image:url(img/earstack.webp)"></div><div class="img" style="background-image:url(img/p-huggie.webp)"></div></div>
   </section>
 
   <section class="sec news" data-dawn="newsletter">
@@ -697,11 +697,11 @@ input[type=range]{accent-color:var(--teal);width:100%}
   <div class="wrap">
     <div class="page-h" data-dawn="main-blog (header)"><span class="eyebrow">The journal</span><h1>Wear it well</h1><div class="chips" style="margin-top:20px"><button aria-pressed="true">All</button><button aria-pressed="false">Care</button><button aria-pressed="false">Styling</button><button aria-pressed="false">Gifting</button><button aria-pressed="false">Sizing</button></div></div>
     <div class="blog-grid" data-dawn="main-blog">
-      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/vanity.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Care · 4 min</span><h3>How to care for gold vermeil</h3><p>Five habits that keep the shine for years, and the two things to avoid.</p></a>
-      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/m-ear.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Styling · 3 min</span><h3>The art of the ear stack</h3><p>Hoops, huggies and studs without the clutter.</p></a>
-      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/flatlay.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Sizing · 2 min</span><h3>Finding your ring size at home</h3><p>A strip of paper, a ruler and two minutes.</p></a>
-      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/gift.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Gifting · 3 min</span><h3>Gifts that get worn</h3><p>How to choose jewellery for someone else.</p></a>
-      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/engraving.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Gifting · 2 min</span><h3>What to engrave on a signet</h3><p>Initials, dates and the little symbols that fit.</p></a>
+      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/editorial.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Care · 4 min</span><h3>How to care for gold vermeil</h3><p>Five habits that keep the shine for years, and the two things to avoid.</p></a>
+      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/earstack.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Styling · 3 min</span><h3>The art of the ear stack</h3><p>Hoops, huggies and studs without the clutter.</p></a>
+      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/p-pearl.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Sizing · 2 min</span><h3>Finding your ring size at home</h3><p>A strip of paper, a ruler and two minutes.</p></a>
+      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/workshop.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Gifting · 3 min</span><h3>Gifts that get worn</h3><p>How to choose jewellery for someone else.</p></a>
+      <a class="post" href="#article" data-go="article" style="text-decoration:none"><div class="img" style="background-image:url(img/p-signet.webp)"></div><span class="eyebrow" style="display:block;margin-top:14px">Gifting · 2 min</span><h3>What to engrave on a signet</h3><p>Initials, dates and the little symbols that fit.</p></a>
     </div>
   </div>
 </main>
@@ -713,7 +713,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
     <span class="eyebrow" style="display:block;margin-top:24px">Care · 4 min read</span>
     <h1>How to care for gold vermeil</h1>
     <p style="color:var(--muted)">Gold vermeil is sterling silver with a thick layer of gold. Treated well, it keeps its shine for years. These five habits help.</p>
-    <div class="img" style="background-image:url(img/vanity.webp)"></div>
+    <div class="img" style="background-image:url(img/editorial.webp)"></div>
     <h2>1. Last on, first off</h2>
     <p>Put jewellery on after perfume, hairspray and moisturiser, and take it off before the gym, the pool or the shower. Chemicals and chlorine wear plating fastest.</p>
     <blockquote>“Treat it like a silk scarf: worn every day, put away with care.”</blockquote>
@@ -735,7 +735,7 @@ input[type=range]{accent-color:var(--teal);width:100%}
   </div>
   <section class="sec on-teal" data-dawn="multicolumn (values)"><div class="wrap"><div class="sec-head"><div><span class="eyebrow">What we stand for</span><h2>Three promises</h2></div></div>
     <div class="values"><div class="value"><h3>Recycled metals</h3><p style="color:#D6E0DD">Every piece starts as recycled sterling silver.</p></div><div class="value"><h3>Thick gold</h3><p style="color:#D6E0DD">A heavier layer of 18k gold than standard plating.</p></div><div class="value"><h3>Made to last</h3><p style="color:#D6E0DD">Free repairs in the first year.</p></div></div></div></section>
-  <section class="split" data-dawn="image-with-text (process)"><div class="img" style="background-image:url(img/flatlay.webp)"></div><div class="txt"><span class="eyebrow">How it's made</span><h2>From sketch to velvet box</h2><p style="color:var(--muted)">Designed in-house, cast in small batches and finished by hand. Each piece is checked twice before it's boxed.</p><ul class="ticks"><li>Sketched and modelled in-house</li><li>Cast in small batches</li><li>Hand polished and checked</li></ul></div></section>
+  <section class="split" data-dawn="image-with-text (process)"><div class="img" style="background-image:url(img/workshop.webp)"></div><div class="txt"><span class="eyebrow">How it's made</span><h2>From sketch to velvet box</h2><p style="color:var(--muted)">Designed in-house, cast in small batches and finished by hand. Each piece is checked twice before it's boxed.</p><ul class="ticks"><li>Sketched and modelled in-house</li><li>Cast in small batches</li><li>Hand polished and checked</li></ul></div></section>
   <section class="sec news" data-dawn="newsletter"><div class="wrap"><h2>Visit the studio</h2><p style="color:var(--muted);margin-top:12px">Try pieces on and have them engraved while you wait. By appointment.</p><div style="margin-top:22px"><a class="btn" href="#contact" data-go="contact">Book a visit</a></div></div></section>
 </main>
 
@@ -790,13 +790,12 @@ input[type=range]{accent-color:var(--teal);width:100%}
 
 <script>
 const P = [
-  {id:"pendant",name:"Disc pendant",cat:"necklaces",price:68,img:"p-pendant",alt:"m-neck",badge:"Best seller",stars:4.8,n:318,metals:["g","s"]},
-  {id:"hoops",name:"Dome hoops",cat:"earrings",price:54,img:"p-hoops",alt:"m-ear",badge:"Best seller",stars:4.9,n:540,metals:["g","s"]},
-  {id:"signet",name:"Oval signet",cat:"rings",price:79,img:"p-signet",alt:"engraving",badge:"Engravable",stars:4.9,n:212,metals:["g","s","rg"],sizes:true},
-  {id:"tennis",name:"Line tennis bracelet",cat:"bracelets",price:76,was:95,img:"p-tennis",alt:"m-wrist",badge:"Sale",stars:4.7,n:96,metals:["g","s"]},
-  {id:"pearl",name:"Pearl drops",cat:"earrings",price:48,img:"p-pearl",alt:"editorial",badge:"New",stars:4.8,n:74,metals:["g"]},
+  {id:"pendant",name:"Disc pendant",cat:"necklaces",price:68,img:"p-pendant",alt:"hero",badge:"Best seller",stars:4.8,n:318,metals:["g","s"]},
+  {id:"hoops",name:"Dome hoops",cat:"earrings",price:54,img:"p-hoops",alt:"earstack",badge:"Best seller",stars:4.9,n:540,metals:["g","s"]},
+  {id:"signet",name:"Oval signet",cat:"rings",price:79,img:"p-signet",alt:"m-hand",badge:"Engravable",stars:4.9,n:212,metals:["g","s","rg"],sizes:true},
+  {id:"tennis",name:"Line tennis bracelet",cat:"bracelets",price:76,was:95,img:"p-tennis",alt:"editorial",badge:"Sale",stars:4.7,n:96,metals:["g","s"]},
+  {id:"pearl",name:"Pearl drops",cat:"earrings",price:48,img:"p-pearl",alt:"earstack",badge:"New",stars:4.8,n:74,metals:["g"]},
   {id:"stack",name:"Trio stacking rings",cat:"rings",price:62,img:"p-stack",alt:"m-hand",stars:4.6,n:131,metals:["g","s"],sizes:true},
-  {id:"paperclip",name:"Paperclip bracelet",cat:"bracelets",price:45,img:"p-paperclip",alt:"m-wrist",stars:4.7,n:88,metals:["g","s"]},
   {id:"huggie",name:"Star huggies",cat:"earrings",price:38,img:"p-huggie",alt:"earstack",badge:"New",stars:4.8,n:202,metals:["g","s","rg"]},
 ];
 const SIZES = ["H","I","J","K","L","M","N","O","P","Q","R","S"];
@@ -823,9 +822,9 @@ function renderGrids(){
   const col = P.filter(p=>p.cat==="earrings").concat(P.filter(p=>p.cat!=="earrings")).slice(0,8).map(card);
   col.splice(4,0,`<div class="promo"><span class="eyebrow">Build a stack</span><h3>Three pieces, 15% off</h3><p>Mix hoops, huggies and studs for your ear.</p><div><a class="btn gold" href="#home" data-go="home">Build yours</a></div></div>`);
   $("#colGrid").innerHTML = col.join("");
-  $("#searchGrid").innerHTML = [P[1],P[7],P[4],P[0]].map(card).join("");
-  $("#pairs").innerHTML = [P[5],P[0],P[7],P[6]].map(card).join("");
-  $("#upsell").innerHTML = [P[7],P[4],P[6]].map(card).join("");
+  $("#searchGrid").innerHTML = [P[1],P[6],P[4],P[0]].map(card).join("");
+  $("#pairs").innerHTML = [P[5],P[0],P[6],P[3]].map(card).join("");
+  $("#upsell").innerHTML = [P[6],P[4],P[3]].map(card).join("");
 }
 
 // pages
@@ -881,7 +880,7 @@ document.addEventListener("click",e=>{
 });
 
 // product page
-const gal=["p-signet","engraving","m-hand","p-stack"];
+const gal=["p-signet","m-hand","p-stack","editorial"];
 $("#thumbs").innerHTML=gal.map((g,i)=>`<button aria-current="${i===0}" aria-label="Image ${i+1}" data-pic="${g}"><img src="img/${g}.webp" alt=""></button>`).join("");
 $("#thumbs").addEventListener("click",e=>{const b=e.target.closest("[data-pic]");if(!b)return;$("#mainPic").src=`img/${b.dataset.pic}.webp`;$$("#thumbs button").forEach(x=>x.setAttribute("aria-current",x===b));});
 $("#mainImg").addEventListener("click",e=>{const m=$("#mainImg");m.classList.toggle("zoom");const r=m.getBoundingClientRect();$("#mainPic").style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;});
