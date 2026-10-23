@@ -1,16 +1,75 @@
 {
-  "code": "nx-theme-001",
-  "queries": [
-    {"q": "gold necklace woman neck", "orientation": "portrait"},
-    {"q": "gold rings hand", "orientation": "portrait"},
-    {"q": "gold earrings ear closeup", "orientation": "portrait"},
-    {"q": "gold jewelry flat lay", "orientation": "squarish"},
-    {"q": "gold bracelet wrist", "orientation": "portrait"},
-    {"q": "jewelry product white background", "orientation": "squarish"},
-    {"q": "pearl earrings", "orientation": "squarish"},
-    {"q": "woman portrait gold jewelry", "orientation": "landscape"},
-    {"q": "jeweler workshop hands", "orientation": "landscape"},
-    {"q": "jewelry gift box", "orientation": "squarish"}
-  ],
-  "pick": []
+ "code": "nx-theme-001",
+ "queries": [
+  {
+   "q": "gold necklace woman neck",
+   "orientation": "portrait"
+  },
+  {
+   "q": "gold rings hand",
+   "orientation": "portrait"
+  },
+  {
+   "q": "gold earrings ear closeup",
+   "orientation": "portrait"
+  },
+  {
+   "q": "gold jewelry flat lay",
+   "orientation": "squarish"
+  },
+  {
+   "q": "gold bracelet wrist",
+   "orientation": "portrait"
+  },
+  {
+   "q": "jewelry product white background",
+   "orientation": "squarish"
+  },
+  {
+   "q": "pearl earrings",
+   "orientation": "squarish"
+  },
+  {
+   "q": "woman portrait gold jewelry",
+   "orientation": "landscape"
+  },
+  {
+   "q": "jeweler workshop hands",
+   "orientation": "landscape"
+  },
+  {
+   "q": "jewelry gift box",
+   "orientation": "squarish"
+  }
+ ],
+ "pick": [
+  {
+   "name": "editorial",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0095-6207606103198583488.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T190847Z&X-Amz-Expires=7856&X-Amz-Signature=55fd51993e8500da6e154e4e79ad0d39be896c045896a32f3019b07f4a5266b4&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2023%20Oct%202026%2021%3A19%3A43%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-hoops",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0096-6207606103198583488.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261022%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261022T204021Z&X-Amz-Expires=88679&X-Amz-Signature=b210ad770d246eb45b872744087f63b6debf97a462fda4fa3a229be178b94ee6&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2023%20Oct%202026%2021%3A18%3A20%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-pendant",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0097-6207606103198583488.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T020500Z&X-Amz-Expires=71905&X-Amz-Signature=68879f1d35410fe70f0c0ded6d6c8d243b1b5e14a04e75fc10341de383d8eec2&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2023%20Oct%202026%2022%3A03%3A25%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-signet",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0098-6207606103198583488.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T080749Z&X-Amz-Expires=50358&X-Amz-Signature=f4660cb7eedebea7f908da833e45ff263e93d117285bc466a6b56fa5437263fc&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2023%20Oct%202026%2022%3A07%3A07%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  }
+ ]
 }
