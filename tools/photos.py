@@ -28,7 +28,52 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60]
 
 
+PEXELS_KEY = __import__("os").environ.get("PEXELS_API_KEY", "")
+
+
+def search_pexels(q, orientation=None, per_page=30):
+    params = {"query": q, "per_page": per_page}
+    if orientation:
+        params["orientation"] = {"squarish": "square"}.get(orientation, orientation)
+    r = requests.get("https://api.pexels.com/v1/search", params=params, headers={"Authorization": PEXELS_KEY}, timeout=30)
+    r.raise_for_status()
+    return [{
+        "id": f"pexels-{p['id']}", "desc": p.get("alt") or "", "w": p["width"], "h": p["height"],
+        "raw": p["src"]["original"], "thumb": p["src"]["medium"], "author": p["photographer"], "link": p["url"],
+        "license": "Pexels License",
+    } for p in r.json().get("photos", [])]
+
+
+def search_openverse(q, orientation=None, per_page=30):
+    params = {"q": q, "page_size": per_page, "license_type": "commercial,modification", "mature": "false"}
+    if orientation in ("landscape", "portrait"):
+        params["aspect_ratio"] = {"landscape": "wide", "portrait": "tall"}[orientation]
+    elif orientation == "squarish":
+        params["aspect_ratio"] = "square"
+    r = requests.get("https://api.openverse.org/v1/images/", params=params, headers=UA, timeout=30)
+    r.raise_for_status()
+    out = []
+    for p in r.json().get("results", []):
+        if (p.get("width") or 0) < 1200:
+            continue
+        out.append({
+            "id": f"ov-{p['id']}", "desc": p.get("title") or "", "w": p.get("width"), "h": p.get("height"),
+            "raw": p["url"], "thumb": p.get("thumbnail") or p["url"], "author": p.get("creator") or "unknown",
+            "link": p.get("foreign_landing_url") or p["url"], "license": f"CC {p.get('license','').upper()} {p.get('license_version') or ''}".strip(),
+        })
+    return out
+
+
 def search(q, orientation=None, per_page=30):
+    if PEXELS_KEY:
+        return search_pexels(q, orientation, per_page)
+    try:
+        return search_unsplash(q, orientation, per_page)
+    except requests.HTTPError:
+        return search_openverse(q, orientation, per_page)
+
+
+def search_unsplash(q, orientation=None, per_page=30):
     params = {"query": q, "per_page": per_page}
     if orientation:
         params["orientation"] = orientation
@@ -46,6 +91,7 @@ def search(q, orientation=None, per_page=30):
             "thumb": p["urls"]["small"],
             "author": p["user"]["name"],
             "link": p["links"]["html"],
+            "license": "Unsplash License",
         })
     return out
 
@@ -77,24 +123,38 @@ def main(mode, job_path):
         for q in job.get("queries", []):
             items = search(q["q"], q.get("orientation"))[: q.get("n", 16)]
             name = slug(q["q"] + "-" + (q.get("orientation") or "any"))
-            (out / f"{name}.json").write_text(json.dumps([{k: it[k] for k in ("id", "desc", "w", "h", "author", "link")} for it in items], indent=1))
+            (out / f"{name}.json").write_text(json.dumps([{k: it.get(k) for k in ("id", "desc", "w", "h", "author", "link", "raw", "license")} for it in items], indent=1))
             sheet(items, out / f"{name}.jpg")
             print(f"{q['q']}: {len(items)} free results")
     elif mode == "fetch":
         out = ROOT / code / "img"
         out.mkdir(parents=True, exist_ok=True)
-        credits = ["# Photo credits", "", "All photos from Unsplash under the free Unsplash License (https://unsplash.com/license).", ""]
+        credits = ["# Photo credits", "", "Demo photos for preview only; not included in the theme files.", ""]
+        known = {}
+        for f in (ROOT / code / "_sheets").glob("*.json"):
+            for it in json.loads(f.read_text()):
+                known[it["id"]] = it
         for p in job.get("pick", []):
-            info = requests.get(f"https://unsplash.com/napi/photos/{p['id']}", headers=UA, timeout=30).json()
-            if info.get("premium") or info.get("plus"):
-                print("skipping premium photo", p["id"])
-                continue
             w = p.get("w", 1600)
-            raw = info["urls"]["raw"]
-            url = f"{raw}&w={w}&q=82&fm=jpg" + (f"&h={p['h']}&fit=crop" if p.get("h") else "")
-            im = Image.open(io.BytesIO(requests.get(url, timeout=60).content)).convert("RGB")
+            if p.get("url"):
+                it = {"raw": p["url"], "author": p.get("author", "Canva"), "link": p.get("link", ""), "license": p.get("license", "Generated with Canva")}
+            elif p["id"] in known:
+                it = known[p["id"]]
+            else:
+                print("unknown photo id, run search first:", p["id"])
+                continue
+            im = Image.open(io.BytesIO(requests.get(it["raw"], headers=UA, timeout=90).content)).convert("RGB")
+            if im.width > w:
+                im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+            if p.get("crop"):  # "4:5" style centre crop
+                a, b = (int(x) for x in p["crop"].split(":"))
+                tw, th = im.width, round(im.width * b / a)
+                if th > im.height:
+                    th, tw = im.height, round(im.height * a / b)
+                l, t = (im.width - tw) // 2, (im.height - th) // 2
+                im = im.crop((l, t, l + tw, t + th))
             im.save(out / f"{p['name']}.webp", "WEBP", quality=p.get("quality", 78))
-            credits.append(f"- {p['name']}.webp: photo {p['id']} by {info['user']['name']}, {info['links']['html']}")
+            credits.append(f"- {p['name']}.webp: {it.get('author')}, {it.get('license', '')}, {it.get('link')}")
             print("saved", p["name"], im.size)
         (out / "CREDITS.md").write_text("\n".join(credits) + "\n")
     else:

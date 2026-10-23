@@ -32,6 +32,8 @@ jobs:
           python-version: "3.12"
       - run: pip install requests pillow
       - run: python tools/photos.py "${{ inputs.mode }}" "${{ inputs.job }}"
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       - name: Commit
         run: |
           git config user.name "nexis-theme-bot"
