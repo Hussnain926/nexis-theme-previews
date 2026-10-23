@@ -1,0 +1,16 @@
+{
+  "code": "nx-theme-001",
+  "queries": [
+    {"q": "gold necklace woman neck", "orientation": "portrait"},
+    {"q": "gold rings hand", "orientation": "portrait"},
+    {"q": "gold earrings ear closeup", "orientation": "portrait"},
+    {"q": "gold jewelry flat lay", "orientation": "squarish"},
+    {"q": "gold bracelet wrist", "orientation": "portrait"},
+    {"q": "jewelry product white background", "orientation": "squarish"},
+    {"q": "pearl earrings", "orientation": "squarish"},
+    {"q": "woman portrait gold jewelry", "orientation": "landscape"},
+    {"q": "jeweler workshop hands", "orientation": "landscape"},
+    {"q": "jewelry gift box", "orientation": "squarish"}
+  ],
+  "pick": []
+}

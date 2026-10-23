@@ -1,0 +1,42 @@
+name: Theme photos
+
+# Searches or downloads Unsplash photos for a theme design and commits them.
+# Run it from the Actions tab or the API with the job file and the mode.
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: Job file, e.g. jobs/nx-theme-001.json
+        required: true
+      mode:
+        description: search (contact sheets) or fetch (download the picks)
+        required: true
+        default: search
+        type: choice
+        options: [search, fetch]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photos
+  cancel-in-progress: false
+
+jobs:
+  photos:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests pillow
+      - run: python tools/photos.py "${{ inputs.mode }}" "${{ inputs.job }}"
+      - name: Commit
+        run: |
+          git config user.name "nexis-theme-bot"
+          git config user.email "nexis-theme-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Photos (${{ inputs.mode }}) for ${{ inputs.job }}"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push
