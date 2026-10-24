@@ -3,30 +3,44 @@
  "queries": [],
  "pick": [
   {
-   "name": "hero",
-   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0095-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T234715Z&X-Amz-Expires=45033&X-Amz-Signature=7c1121f6a3a88dc43513313c01356e66c56315a0427e12dae8a81ab7a70c3f36&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A17%3A48%20GMT",
+   "name": "p-decaf",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0095-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T182105Z&X-Amz-Expires=66291&X-Amz-Signature=beb5ca16c5c6d75086c231a839f3af960b5b552630ebd4d01d192df189d90aef&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A45%3A56%20GMT",
    "w": 1136,
    "license": "Generated with Canva (demo only)",
    "author": "Canva"
   },
   {
-   "name": "p-light",
-   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0096-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T132323Z&X-Amz-Expires=82721&X-Amz-Signature=a7aaa0caf03ee2ec621bf844ecd56302272618b6d2b948c4bd61a20a26731487&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A22%3A04%20GMT",
+   "name": "p-v60",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0096-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T031350Z&X-Amz-Expires=34816&X-Amz-Signature=199fa72253eda8f09619d10457b9339401704d3feed311f37b060e93cb24d1ac&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A54%3A06%20GMT",
    "w": 1136,
    "license": "Generated with Canva (demo only)",
    "author": "Canva"
   },
   {
-   "name": "p-medium",
-   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0097-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T230532Z&X-Amz-Expires=45446&X-Amz-Signature=852579dfb83f129c2021713f170382c559ff5873638857421b311368c7c0c9ef&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2011%3A42%3A58%20GMT",
+   "name": "p-grinder",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0097-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T173723Z&X-Amz-Expires=68469&X-Amz-Signature=7bbd758b4ae5866fce9c08d6f0ff14bb040cee291e12261aacd6396a8c04f01c&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A38%3A32%20GMT",
    "w": 1136,
    "license": "Generated with Canva (demo only)",
    "author": "Canva"
   },
   {
-   "name": "p-dark",
-   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0098-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T062134Z&X-Amz-Expires=21286&X-Amz-Signature=1b6fadf5408bbd0f279d858ad4261814c96b570cb72631325d255e4e1f9bb1c4&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A16%3A20%20GMT",
+   "name": "roaster",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0098-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T185058Z&X-Amz-Expires=62522&X-Amz-Signature=3214e0f6b397e80bed2303a9f2add1fac66d434ee1891f3c409b8be1ba360384&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A13%3A00%20GMT",
    "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "beans",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0099-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T055857Z&X-Amz-Expires=25447&X-Amz-Signature=6b67ae51fcf541dc3b4aeec8a0056b6df7dd386831a8d36e756fc71daa2f1061&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2013%3A03%3A04%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "latte",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0100-6829102914208217196.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T185201Z&X-Amz-Expires=63179&X-Amz-Signature=4115d0bcbcc20f0be42459b58a04edff8cfa96bed7bed7e62b6d0393ed53b8d5&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A25%3A00%20GMT",
+   "w": 1088,
    "license": "Generated with Canva (demo only)",
    "author": "Canva"
   }

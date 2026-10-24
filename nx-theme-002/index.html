@@ -146,7 +146,7 @@ body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-i
 .badge{position:absolute;top:12px;left:12px;z-index:3;background:var(--paper);border:2px solid var(--espresso);border-radius:999px;padding:4px 11px;font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .badge.red{background:var(--tomato);border-color:var(--tomato);color:#fff}
 .badge.green{background:var(--pist)}
-.fresh{position:absolute;top:12px;right:12px;z-index:3;width:62px;height:62px;border-radius:50%;background:var(--espresso);color:var(--kraft);display:grid;place-items:center;text-align:center;font:500 9.5px/1.25 var(--mono);letter-spacing:.06em;text-transform:uppercase;transform:rotate(10deg)}
+.fresh{position:absolute;top:12px;right:12px;z-index:3;width:70px;height:70px;padding-top:2px;border-radius:50%;background:var(--espresso);color:var(--kraft);display:grid;place-items:center;text-align:center;font:500 9px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;transform:rotate(10deg)}
 .fresh b{display:block;font:400 17px/1 var(--display);letter-spacing:0;text-transform:none}
 .quick{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;min-height:46px;border-radius:999px;border:0;background:var(--paper);font-weight:600;transform:translateY(130%);transition:transform .3s}
 .card:hover .quick,.quick:focus-visible{transform:none}
@@ -178,9 +178,9 @@ body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-i
 .quiz-steps i{flex:1;height:6px;border-radius:3px;background:rgba(43,27,20,.18)}
 .quiz-steps i.on{background:var(--espresso)}
 .quiz-main{padding:clamp(28px,4vw,56px);min-height:440px;display:flex;flex-direction:column}
-.q{display:none;flex-direction:column;gap:22px;flex:1}
-.q.on{display:flex}
-.q h3{font-size:clamp(28px,2.8vw,40px)}
+.qz{display:none;flex-direction:column;gap:22px;flex:1}
+.qz.on{display:flex}
+.qz h3{font-size:clamp(28px,2.8vw,40px)}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .opts button{display:flex;align-items:center;gap:14px;text-align:left;padding:16px 18px;border-radius:16px;border:2px solid var(--espresso);background:var(--kraft);font-weight:500;font-size:16px;transition:background .2s,transform .2s}
 .opts button:hover{transform:translateY(-2px)}
@@ -571,13 +571,13 @@ body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-i
           <div class="quiz-steps" id="qSteps"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
         <div class="quiz-main">
-          <div class="q on" data-q="0"><span class="mono" style="color:var(--muted)">Question 1 of 3</span><h3>How do you make your coffee?</h3>
+          <div class="qz on" data-q="0"><span class="mono" style="color:var(--muted)">Question 1 of 3</span><h3>How do you make your coffee?</h3>
             <div class="opts" data-key="brew"><button data-v="espresso"><span>☕</span><div>Espresso machine<small>Shots, flat whites</small></div></button><button data-v="filter"><span>🫖</span><div>Filter or pour-over<small>V60, Chemex, batch brew</small></div></button><button data-v="cafetiere"><span>🥛</span><div>Cafetière<small>French press</small></div></button><button data-v="moka"><span>🔥</span><div>Moka pot or AeroPress<small>Strong and quick</small></div></button></div></div>
-          <div class="q" data-q="1"><span class="mono" style="color:var(--muted)">Question 2 of 3</span><h3>Which flavours do you enjoy?</h3>
+          <div class="qz" data-q="1"><span class="mono" style="color:var(--muted)">Question 2 of 3</span><h3>Which flavours do you enjoy?</h3>
             <div class="opts" data-key="taste"><button data-v="fruity"><span>🍑</span><div>Fruity and bright<small>Berries, citrus, florals</small></div></button><button data-v="choc"><span>🍫</span><div>Chocolate and nutty<small>Smooth and sweet</small></div></button><button data-v="bold"><span>🪵</span><div>Bold and smoky<small>Rich, low acidity</small></div></button><button data-v="decaf"><span>🌙</span><div>Easy, no caffeine<small>Decaf please</small></div></button></div></div>
-          <div class="q" data-q="2"><span class="mono" style="color:var(--muted)">Question 3 of 3</span><h3>Do you take milk?</h3>
+          <div class="qz" data-q="2"><span class="mono" style="color:var(--muted)">Question 3 of 3</span><h3>Do you take milk?</h3>
             <div class="opts" data-key="milk"><button data-v="black"><span>⚫</span><div>Black<small>Nothing added</small></div></button><button data-v="milk"><span>🥛</span><div>With milk<small>Or oat, or almond</small></div></button></div></div>
-          <div class="q" data-q="3" id="qResult"></div>
+          <div class="qz" data-q="3" id="qResult"></div>
           <div class="q-nav"><button class="q-back" id="qBack" hidden>Back</button><span class="mono" style="color:var(--muted);margin-left:auto">Answers stay on this device</span></div>
         </div>
       </div>
@@ -962,7 +962,7 @@ document.addEventListener("click",e=>{
 
 // coffee finder
 const answers={};let qi=0;
-function showQ(i){qi=i;$$(".q").forEach(q=>q.classList.toggle("on",+q.dataset.q===i));$$("#qSteps i").forEach((s,n)=>s.classList.toggle("on",n<=i));$("#qBack").hidden=i===0;}
+function showQ(i){qi=i;$$(".qz").forEach(q=>q.classList.toggle("on",+q.dataset.q===i));$$("#qSteps i").forEach((s,n)=>s.classList.toggle("on",n<=i));$("#qBack").hidden=i===0;}
 function pick(){
   if(answers.taste==="decaf")return P[3];
   if(answers.brew==="espresso"||answers.taste==="bold")return answers.milk==="milk"||answers.brew==="espresso"?P[2]:P[4];
