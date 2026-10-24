@@ -2,7 +2,9 @@
 
 Demo photos for preview only; not included in the theme files.
 
-- hero.webp: Canva, Generated with Canva (demo only), 
-- p-light.webp: Canva, Generated with Canva (demo only), 
-- p-medium.webp: Canva, Generated with Canva (demo only), 
-- p-dark.webp: Canva, Generated with Canva (demo only), 
+- p-decaf.webp: Canva, Generated with Canva (demo only), 
+- p-v60.webp: Canva, Generated with Canva (demo only), 
+- p-grinder.webp: Canva, Generated with Canva (demo only), 
+- roaster.webp: Canva, Generated with Canva (demo only), 
+- beans.webp: Canva, Generated with Canva (demo only), 
+- latte.webp: Canva, Generated with Canva (demo only), 
