@@ -1,8 +1,14 @@
 # Photo credits
 
-Demo photos for preview only; not included in the theme files.
+Demo photos generated with Canva for the Wag demo store (Muddy Paws Co.).
 
-- p-bed.webp: Canva, Generated with Canva (demo only), 
-- p-toy.webp: Canva, Generated with Canva (demo only), 
-- walk.webp: Canva, Generated with Canva (demo only), 
-- bowl.webp: Canva, Generated with Canva (demo only), 
+- bowl.webp: Canva (generated, demo only)
+- cat.webp: Canva (generated, demo only)
+- hero.webp: Canva (generated, demo only)
+- p-bed.webp: Canva (generated, demo only)
+- p-catfood.webp: Canva (generated, demo only)
+- p-food.webp: Canva (generated, demo only)
+- p-harness.webp: Canva (generated, demo only)
+- p-toy.webp: Canva (generated, demo only)
+- p-treats.webp: Canva (generated, demo only)
+- walk.webp: Canva (generated, demo only)
