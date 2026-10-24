@@ -1,0 +1,34 @@
+{
+ "code": "nx-theme-002",
+ "queries": [],
+ "pick": [
+  {
+   "name": "hero",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0095-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T234715Z&X-Amz-Expires=45033&X-Amz-Signature=7c1121f6a3a88dc43513313c01356e66c56315a0427e12dae8a81ab7a70c3f36&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A17%3A48%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-light",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0096-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T132323Z&X-Amz-Expires=82721&X-Amz-Signature=a7aaa0caf03ee2ec621bf844ecd56302272618b6d2b948c4bd61a20a26731487&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A22%3A04%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-medium",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0097-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261023T230532Z&X-Amz-Expires=45446&X-Amz-Signature=852579dfb83f129c2021713f170382c559ff5873638857421b311368c7c0c9ef&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2011%3A42%3A58%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-dark",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0098-3980576149430475714.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T062134Z&X-Amz-Expires=21286&X-Amz-Signature=1b6fadf5408bbd0f279d858ad4261814c96b570cb72631325d255e4e1f9bb1c4&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2024%20Oct%202026%2012%3A16%3A20%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  }
+ ]
+}
