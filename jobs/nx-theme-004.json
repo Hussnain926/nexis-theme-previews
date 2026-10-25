@@ -1,0 +1,48 @@
+{
+ "code": "nx-theme-004",
+ "queries": [],
+ "pick": [
+  {
+   "name": "h1",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0095-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T164414Z&X-Amz-Expires=89871&X-Amz-Signature=de39869ba73cd775dfd977f5f187658c63badc89061614717aeed8bd9dd18c76&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2017%3A42%3A05%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "h2",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0096-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T163338Z&X-Amz-Expires=92723&X-Amz-Signature=52df59d6872b54208ceda21723faadb59d93ad44ef0c53c3f370e9ea03515337&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2018%3A19%3A01%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "h3",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0097-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261025T101913Z&X-Amz-Expires=28805&X-Amz-Signature=7fb364e33eb0633d11d0666ada4a457116a0245765a63dbdbe060cf7e430bc95&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2018%3A19%3A18%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "look",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0098-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261025T101004Z&X-Amz-Expires=29777&X-Amz-Signature=ed8c180c9cfe732842c25e30dff9f13d14a0e39272c038e603350b82a3e4378b&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2018%3A26%3A21%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "fabric",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0099-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261025T124617Z&X-Amz-Expires=20029&X-Amz-Signature=e0a27c2273aebd55ddff8375fe690606d17d3f755bd0513160b2b172738361c8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2018%3A20%3A06%20GMT",
+   "w": 1136,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  },
+  {
+   "name": "p-hijabs",
+   "url": "https://export-download.canva.com/uTolc/DAHY0quTolc/-1/0/0100-5828178024975994330.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261024%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261024T194556Z&X-Amz-Expires=78590&X-Amz-Signature=3c9dcb951254c6b98ba03c115190d6bb1bc6c89e3bdd2d23bebf6c0fa886387b&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sun%2C%2025%20Oct%202026%2017%3A35%3A46%20GMT",
+   "w": 1088,
+   "license": "Generated with Canva (demo only)",
+   "author": "Canva"
+  }
+ ]
+}
