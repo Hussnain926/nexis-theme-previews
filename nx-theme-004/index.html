@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noor, a Shopify modest fashion theme by Nexis Solutions1 (preview)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Noor: modest fashion. Marcellus display + Mulish body.
+   Ivory page, aubergine ink, mauve, olive, stone. */
+:root{
+  --ivory:#F6F1EA; --white:#FFFDF9; --aub:#3A1E2E; --aub-2:#2A1521; --mauve:#C9A3B4; --mauve-soft:#EBDCE2; --olive:#6E6B3A; --olive-soft:#E3E1CF;
+  --stone:#DDD3C6; --ink:#2A1A22; --muted:#7B6C72; --line:#E2D8CC;
+  --display:"Marcellus",Georgia,serif; --sans:"Mulish","Helvetica Neue",Arial,sans-serif;
+  --wrap:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font:400 15.5px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:.01em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,3.6vw,52px)}
+.over{font:600 11.5px var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--olive)}
+.sec{padding:clamp(60px,8vw,120px) 0}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head h2{font-size:clamp(34px,4.2vw,60px);margin-top:12px}
+.sec-head p{color:var(--muted);max-width:34em;margin:12px auto 0}
+.ul{font:600 12px var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 34px;border:1px solid var(--aub);background:var(--aub);color:var(--ivory);font:600 12px var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s}
+.btn:hover{background:var(--aub-2)}
+.btn.line{background:transparent;color:var(--aub)}
+.btn.line:hover{background:var(--aub);color:var(--ivory)}
+.btn.light{background:var(--ivory);border-color:var(--ivory);color:var(--aub)}
+.btn.ghost{background:transparent;border-color:rgba(255,253,249,.7);color:var(--white)}
+.img{background:var(--stone) center/cover no-repeat;position:relative;overflow:hidden}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* design toolbar (preview only, not part of the theme) */
+.dz{position:sticky;top:0;z-index:90;background:#1c0f16;color:#e8dde2;font:600 12px/1 var(--sans);display:flex;gap:6px;align-items:center;padding:8px 12px;overflow-x:auto}
+.dz b{color:#fff;margin-right:8px;white-space:nowrap}
+.dz button{background:#33202a;border:0;border-radius:6px;padding:7px 10px;color:#e8dde2;white-space:nowrap}
+.dz button[aria-pressed=true]{background:var(--mauve);color:#111}
+.dz label{margin-left:auto;display:flex;gap:6px;align-items:center;white-space:nowrap}
+body.show-dawn [data-dawn]{position:relative;outline:1px dashed rgba(110,107,58,.9);outline-offset:-1px}
+body.show-dawn [data-dawn]::before{content:attr(data-dawn);position:absolute;z-index:60;left:8px;top:8px;background:#1c0f16;color:var(--mauve);font:600 11px/1 var(--sans);padding:5px 7px;border-radius:4px;pointer-events:none}
+
+/* top bar + two-tier header */
+.topbar{background:var(--aub);color:#eadfe4;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:16px}
+.topbar .mid{flex:1;text-align:center}
+.topbar select{background:transparent;border:0;color:inherit;font:inherit;letter-spacing:inherit}
+.topbar select option{color:#111}
+.hd{background:var(--ivory);position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line)}
+.hd-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:86px}
+.logo{text-decoration:none;text-align:center;display:block}
+.logo b{display:block;font:400 40px/1 var(--display);letter-spacing:.32em;margin-right:-.32em}
+.logo small{display:block;font:600 9.5px var(--sans);letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.tools{display:flex;justify-content:flex-end;gap:2px}
+.tools.l{justify-content:flex-start}
+.ico{width:44px;height:44px;display:grid;place-items:center;background:none;border:0;position:relative;text-decoration:none}
+.ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.4}
+#bagCount{position:absolute;top:5px;right:3px;min-width:17px;height:17px;border-radius:9px;background:var(--mauve);color:var(--aub);font:700 10px/17px var(--sans);text-align:center;padding:0 4px;transition:transform .2s}
+#bagCount.bump{transform:scale(1.35)}
+.nav{display:flex;justify-content:center;gap:36px;height:46px;align-items:center;border-top:1px solid var(--line)}
+.nav a,.nav button{display:inline-flex;align-items:center;background:none;border:0;padding:0;text-decoration:none;font:600 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;position:relative;height:46px}
+.nav a::after,.nav button::after{content:"";position:absolute;left:50%;right:50%;bottom:10px;height:1px;background:var(--aub);transition:left .25s,right .25s}
+.nav a:hover::after,.nav button:hover::after,.nav button[aria-expanded=true]::after{left:0;right:0}
+.nav .new{color:var(--olive)}
+.burger{display:none}
+.mega{display:none;border-top:1px solid var(--line);background:var(--white)}
+.mega.open{display:block}
+.mega-in{display:grid;grid-template-columns:repeat(3,1fr) 1.2fr 1.2fr;gap:30px;padding:34px 0}
+.mega h4{font:600 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.mega a{display:block;text-decoration:none;padding:5px 0;font-size:15px}
+.mega a:hover{color:var(--olive)}
+.mega-tile{text-decoration:none;display:flex;flex-direction:column;gap:10px}
+.mega-tile .img{aspect-ratio:4/5}
+.mega-tile span{font:400 19px var(--display)}
+
+/* triptych hero */
+.trip{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:6px;height:min(86vh,820px);min-height:520px}
+.trip .img{height:100%}
+.trip .mid{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;color:var(--white);padding:clamp(24px,4vw,56px)}
+.trip .mid::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(42,21,33,.62))}
+.trip .mid>*{position:relative}
+.trip .mid .over{color:#f0e3e9}
+.trip h1{font-size:clamp(44px,5.6vw,88px);margin:14px 0 14px;letter-spacing:.02em}
+.trip p{max-width:26em;opacity:.92;font-size:16.5px}
+.trip .hero-btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;justify-content:center}
+.trip .tag{position:absolute;left:18px;bottom:18px;background:rgba(246,241,234,.92);color:var(--ink);padding:10px 14px;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+.marq{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0}
+.marq div{display:inline-flex;gap:48px;animation:mq 40s linear infinite;font:400 22px var(--display);color:var(--aub)}
+.marq span::after{content:"✦";margin-left:48px;color:var(--mauve);font-size:14px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* vertical-label category rail */
+.rail{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.rail a{position:relative;text-decoration:none;display:block}
+.rail .img{aspect-ratio:2/3;transition:transform .5s}
+.rail a:hover .img{transform:scale(1.02)}
+.rail .lab{position:absolute;left:0;top:0;bottom:0;width:46px;background:var(--ivory);display:flex;align-items:center;justify-content:center}
+.rail .lab span{writing-mode:vertical-rl;transform:rotate(180deg);font:400 21px var(--display);letter-spacing:.08em;white-space:nowrap}
+.rail .cnt{position:absolute;right:12px;top:12px;background:var(--ivory);font:600 11px var(--sans);letter-spacing:.16em;padding:5px 9px}
+
+/* product cards */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 18px}
+.card{display:flex;flex-direction:column;gap:14px;text-align:center}
+.card .media{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--stone)}
+.card .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .9s}
+.card .media img.alt{opacity:0}
+.card:hover .media img.alt{opacity:1}
+.card:hover .media img.main{transform:scale(1.03)}
+.badge{position:absolute;top:12px;left:12px;z-index:3;background:var(--ivory);padding:5px 10px;font:600 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.badge.sale{background:var(--aub);color:var(--ivory)}
+.badge.new{background:var(--olive);color:var(--white)}
+.wish{position:absolute;top:8px;right:8px;z-index:3;width:38px;height:38px;border:0;background:none;display:grid;place-items:center}
+.wish svg{width:20px;height:20px;fill:none;stroke:var(--aub);stroke-width:1.4}
+.wish[aria-pressed=true] svg{fill:var(--aub)}
+.sizes-bar{position:absolute;left:0;right:0;bottom:0;z-index:3;background:rgba(255,253,249,.96);padding:12px;transform:translateY(100%);transition:transform .35s}
+.card:hover .sizes-bar,.sizes-bar:focus-within{transform:none}
+.sizes-bar p{font:600 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.sizes-bar div{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.sizes-bar button{min-width:44px;height:34px;border:1px solid var(--line);background:none;font:600 12px var(--sans)}
+.sizes-bar button:hover{background:var(--aub);color:var(--ivory);border-color:var(--aub)}
+.card .t{font:400 18px var(--display);text-decoration:none}
+.card .price{font-weight:600;letter-spacing:.04em}
+.card .price s{color:var(--muted);font-weight:400;margin-left:8px}
+.sw{display:flex;justify-content:center;gap:6px;align-items:center}
+.sw i{width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);outline:1px solid transparent;outline-offset:2px}
+.sw i.on{outline-color:var(--aub)}
+.sw small{color:var(--muted);font-size:12px;margin-left:4px}
+
+/* tabs above grid */
+.tabs{display:flex;justify-content:center;gap:28px;margin-bottom:34px;flex-wrap:wrap}
+.tabs button{background:none;border:0;padding:6px 0;font:600 11.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid transparent}
+.tabs button[aria-pressed=true]{color:var(--aub);border-color:var(--aub)}
+
+/* shop the look (signature) */
+.look{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,70px);align-items:center}
+.look-pic{position:relative;aspect-ratio:4/5}
+.dot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:0;background:rgba(255,253,249,.92);display:grid;place-items:center;font:600 13px var(--sans);color:var(--aub);box-shadow:0 0 0 0 rgba(255,253,249,.7);animation:pulse 2.4s infinite}
+.dot[aria-pressed=true]{background:var(--aub);color:var(--ivory);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(255,253,249,0)}100%{box-shadow:0 0 0 0 rgba(255,253,249,0)}}
+.look-side h2{font-size:clamp(34px,3.8vw,56px);margin:12px 0 14px}
+.look-side>p{color:var(--muted);margin-bottom:24px}
+.look-items{display:grid;gap:12px}
+.li{display:grid;grid-template-columns:84px 1fr auto;gap:16px;align-items:center;padding:10px;border:1px solid var(--line);background:var(--white);transition:border-color .2s}
+.li.on{border-color:var(--aub)}
+.li .img{aspect-ratio:3/4}
+.li b{font:400 18px var(--display);display:block}
+.li small{color:var(--muted)}
+.li .btn{min-height:40px;padding:0 16px}
+.look-total{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.look-total b{font:400 26px var(--display)}
+
+/* length finder (signature) */
+.lf{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border:1px solid var(--line)}
+.lf-l{padding:clamp(28px,4.4vw,64px);display:flex;flex-direction:column;gap:22px}
+.lf-l h2{font-size:clamp(32px,3.6vw,52px)}
+.lf-l p.lead{color:var(--muted)}
+.unit{display:flex;border:1px solid var(--line);width:max-content}
+.unit button{border:0;background:none;padding:9px 16px;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.unit button[aria-pressed=true]{background:var(--aub);color:var(--ivory)}
+.fld{display:grid;gap:10px}
+.fld>span{display:flex;justify-content:space-between;font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.fld>span em{font:400 20px var(--display);letter-spacing:0;text-transform:none;font-style:normal}
+.fld input[type=range]{accent-color:var(--aub);width:100%}
+.shoe{display:flex;gap:8px;flex-wrap:wrap}
+.shoe button{border:1px solid var(--line);background:none;padding:10px 16px;font-weight:600;font-size:14px}
+.shoe button[aria-pressed=true]{border-color:var(--aub);background:var(--aub);color:var(--ivory)}
+.lf-r{background:var(--mauve-soft);padding:clamp(28px,4.4vw,64px);display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:center}
+.fig{position:relative;width:120px;height:330px}
+.fig svg{width:100%;height:100%}
+.fig .hem{position:absolute;left:-14px;right:-14px;height:0;border-top:1px dashed var(--aub);transition:top .3s}
+.fig .hem span{position:absolute;right:-8px;top:-10px;transform:translateX(100%);font:600 11px var(--sans);letter-spacing:.14em;white-space:nowrap}
+.lf-res small{font:600 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.lf-res b{display:block;font:400 clamp(64px,7vw,104px)/1 var(--display);color:var(--aub);margin:8px 0}
+.lf-res p{color:#5d4a54}
+.lf-res table{border-collapse:collapse;margin-top:18px;font-size:13.5px;width:100%}
+.lf-res td,.lf-res th{padding:7px 10px;border-bottom:1px solid rgba(58,30,46,.14);text-align:left}
+.lf-res th{font:600 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.lf-res tr.on td{color:var(--aub);font-weight:700}
+
+/* colour edit (signature) */
+.colours{display:flex;justify-content:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+.colours a{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none}
+.colours i{width:clamp(74px,8vw,110px);aspect-ratio:1;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .3s;position:relative}
+.colours i::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid transparent;transition:border-color .3s}
+.colours a:hover i{transform:scale(1.05)}
+.colours a:hover i::after{border-color:var(--aub)}
+.colours b{font:400 18px var(--display)}
+.colours small{color:var(--muted);font-size:12.5px;margin-top:-8px}
+
+/* editorial, values, reviews, journal, newsletter */
+.edit{display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+.edit .img{min-height:520px}
+.edit-t{background:var(--aub);color:var(--ivory);padding:clamp(30px,6vw,96px);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.edit-t .over{color:var(--mauve)}
+.edit-t h2{font-size:clamp(36px,4.2vw,62px)}
+.edit-t p{color:#e3d4db;font-size:17px;max-width:30em}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vals div{padding:30px 24px;text-align:center}
+.vals div+div{border-left:1px solid var(--line)}
+.vals svg{width:28px;height:28px;fill:none;stroke:var(--olive);stroke-width:1.3;margin:0 auto 12px}
+.vals b{display:block;font:400 19px var(--display)}
+.vals small{color:var(--muted)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev{text-align:center;padding:10px 20px}
+.rev .st{letter-spacing:4px;color:var(--olive)}
+.rev q{display:block;font:400 22px/1.45 var(--display);quotes:none;margin:16px 0}
+.rev small{font:600 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post{text-decoration:none;display:flex;flex-direction:column;gap:12px}
+.post .img{aspect-ratio:4/5}
+.post h3{font-size:24px}
+.post p{color:var(--muted)}
+.news{background:var(--olive-soft);padding:clamp(40px,6vw,80px) 20px;text-align:center}
+.news h2{font-size:clamp(32px,4vw,54px);margin:12px 0}
+.news p{color:var(--muted)}
+.news form{display:flex;max-width:520px;margin:26px auto 0;border-bottom:1px solid var(--aub)}
+.news input{flex:1;border:0;background:none;height:52px;padding:0 4px;outline:none}
+.news button{border:0;background:none;font:600 12px var(--sans);letter-spacing:.24em;text-transform:uppercase}
+
+/* footer */
+.ft{background:var(--aub);color:#e3d4db;margin-top:0}
+.ft-in{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:30px;padding:64px 0 40px}
+.ft .logo{text-align:left;color:var(--ivory)}
+.ft .logo b{font-size:30px}
+.ft .logo small{color:#bfa9b3}
+.ft h4{font:600 11px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--mauve);margin-bottom:14px}
+.ft-in a:not(.logo){display:block;text-decoration:none;padding:4px 0}
+.ft-in a:not(.logo):hover{color:#fff}
+.ft-low{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 0 28px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#bfa9b3}
+.pays{display:flex;gap:6px}
+.pays span{border:1px solid rgba(255,255,255,.3);padding:3px 8px;font:700 10px var(--sans);letter-spacing:.06em}
+
+/* pages */
+.page{display:none}
+.page.on{display:block}
+.crumbs{font:600 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);padding:22px 0}
+.crumbs a{text-decoration:none}
+
+/* collection */
+.col-hero{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:340px;margin-bottom:10px}
+.col-hero>div:first-child{background:var(--mauve-soft);display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,5vw,72px);gap:14px}
+.col-hero h1{font-size:clamp(44px,5.6vw,84px)}
+.col-hero p{color:#5d4a54;max-width:30em}
+.col-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);margin-bottom:30px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:none;padding:8px 14px;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.chips button[aria-pressed=true]{background:var(--aub);color:var(--ivory);border-color:var(--aub)}
+.col-bar select{border:0;background:none;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.col-body{display:grid;grid-template-columns:230px 1fr;gap:36px}
+.filt details{border-bottom:1px solid var(--line);padding:14px 0}
+.filt summary{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;cursor:pointer}
+.filt summary::after{content:"+"}
+.filt details[open] summary::after{content:"–"}
+.filt label{display:flex;gap:10px;align-items:center;padding:5px 0;font-size:14.5px}
+.filt label em{margin-left:auto;font-style:normal;color:var(--muted);font-size:12px}
+.filt input{accent-color:var(--aub)}
+.filt .cdots{display:flex;flex-wrap:wrap;gap:8px;padding-top:10px}
+.filt .cdots i{width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.col-body>div,.grid3>*,.grid4>*{min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 18px}
+.promo{background:var(--olive);color:var(--white);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;gap:14px;aspect-ratio:3/4}
+.promo .over{color:var(--olive-soft)}
+.promo h3{font-size:30px}
+.pager{display:flex;justify-content:center;gap:18px;margin-top:50px;font:600 12px var(--sans);letter-spacing:.2em}
+.pager a{text-decoration:none;padding-bottom:4px}
+.pager a.on{border-bottom:1px solid var(--aub)}
+
+/* product */
+.pdp{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,70px);align-items:start}
+.car{position:relative}
+.car .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.car .slides::-webkit-scrollbar{display:none}
+.car .slides .img{flex:0 0 100%;aspect-ratio:3/4;scroll-snap-align:start}
+.car .arrows{position:absolute;right:16px;bottom:16px;display:flex;gap:6px}
+.car .arrows button{width:46px;height:46px;border:0;background:rgba(246,241,234,.92);font-size:18px}
+.car .count{position:absolute;left:16px;bottom:16px;background:rgba(246,241,234,.92);padding:8px 12px;font:600 11px var(--sans);letter-spacing:.2em}
+.car .mini{display:flex;gap:8px;margin-top:10px}
+.car .mini button{width:70px;aspect-ratio:3/4;border:1px solid transparent;padding:0;background:var(--stone) center/cover}
+.car .mini button[aria-current=true]{border-color:var(--aub)}
+.buy{position:sticky;top:150px;display:flex;flex-direction:column;gap:22px}
+.buy h1{font-size:clamp(34px,3.6vw,54px)}
+.buy .p{font:400 26px var(--display)}
+.buy .p small{font:400 13px var(--sans);color:var(--muted);margin-left:8px}
+.optl{display:flex;justify-content:space-between;font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
+.optl span{color:var(--muted);letter-spacing:.1em}
+.optl a{color:var(--aub)}
+.cols{display:flex;gap:12px}
+.cols button{width:38px;height:38px;border-radius:50%;border:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);outline:1px solid transparent;outline-offset:3px}
+.cols button[aria-pressed=true]{outline-color:var(--aub)}
+.szs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.szs button{height:46px;border:1px solid var(--line);background:none;font-weight:600}
+.szs button[aria-pressed=true]{border-color:var(--aub);background:var(--aub);color:var(--ivory)}
+.szs button:disabled{color:#bbb;background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(0,0,0,.05) 6px 7px)}
+.ctl{border:1px solid var(--line);background:var(--white);padding:16px}
+.ctl h4{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
+.ctl label{display:grid;grid-template-columns:auto 56px 1fr auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}
+.ctl label:first-of-type{border-top:0}
+.ctl .img{aspect-ratio:3/4}
+.ctl input{accent-color:var(--aub);width:17px;height:17px}
+.addrow{display:grid;grid-template-columns:1fr 54px;gap:8px}
+.addbtn{min-height:56px;font-size:12.5px}
+.addbtn.done{background:var(--olive);border-color:var(--olive)}
+.wishbtn{border:1px solid var(--aub);background:none;display:grid;place-items:center}
+.wishbtn svg{width:20px;height:20px;fill:none;stroke:var(--aub);stroke-width:1.4}
+.wishbtn[aria-pressed=true] svg{fill:var(--aub)}
+.meta{display:grid;gap:8px;font-size:14px;color:var(--muted)}
+.meta div{display:flex;gap:10px;align-items:center}
+.meta svg{width:18px;height:18px;fill:none;stroke:var(--olive);stroke-width:1.4;flex:none}
+.acc details{border-top:1px solid var(--line);padding:16px 0}
+.acc details:last-child{border-bottom:1px solid var(--line)}
+.acc summary{font:600 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;cursor:pointer}
+.acc summary::after{content:"+"}
+.acc details[open] summary::after{content:"–"}
+.acc p{color:var(--muted);margin-top:10px}
+.fabric{display:grid;grid-template-columns:90px 1fr;gap:14px;margin-top:12px;align-items:center}
+.fabric .img{aspect-ratio:1/1}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--white);border-top:1px solid var(--line);display:none;align-items:center;gap:12px;padding:10px 16px}
+.sticky-atc.show{display:flex}
+.sticky-atc .btn{min-height:46px;margin-left:auto}
+
+/* drawer + cart */
+.drawer{position:fixed;inset:0;z-index:100;pointer-events:none}
+.drawer .veil{position:absolute;inset:0;background:rgba(42,21,33,.4);opacity:0;transition:opacity .3s}
+.drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--ivory);transform:translateX(100%);transition:transform .4s;display:flex;flex-direction:column}
+.drawer.open{pointer-events:auto}
+.drawer.open .veil{opacity:1}
+.drawer.open .panel{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:26px}
+.db{flex:1;overflow:auto;padding:4px 24px}
+.df{padding:18px 24px 24px;border-top:1px solid var(--line);display:grid;gap:10px}
+.ship{font-size:13.5px;color:var(--muted)}
+.ship i{display:block;height:3px;background:var(--line);margin-top:10px}
+.ship i b{display:block;height:100%;background:var(--aub)}
+.cline{display:grid;grid-template-columns:84px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.cline .img{aspect-ratio:3/4}
+.cline b{font:400 17px var(--display)}
+.cline small{display:block;color:var(--muted);font-size:13px}
+.cline .qq{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line);margin-top:10px;padding:2px 8px}
+.cline .qq button{border:0;background:none;width:20px}
+.rm{border:0;background:none;color:var(--muted);text-decoration:underline;font-size:12.5px;padding:0;margin-top:6px}
+.cart-pg{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,64px);align-items:start}
+.summary{background:var(--white);border:1px solid var(--line);padding:28px;display:grid;gap:14px;position:sticky;top:150px}
+.summary .r{display:flex;justify-content:space-between}
+.summary .r.t{font:400 24px var(--display);border-top:1px solid var(--line);padding-top:14px}
+.summary label{display:flex;gap:10px;align-items:center;font-size:14px}
+.summary label input{accent-color:var(--aub)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--aub);color:var(--ivory);padding:13px 22px;z-index:120;transition:transform .3s;visibility:hidden;font-size:14px}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+
+/* search, blog, article, about, contact, 404 */
+.search-box{display:flex;border-bottom:1px solid var(--aub);margin:10px 0 26px}
+.search-box input{flex:1;border:0;background:none;height:72px;font:400 32px var(--display);outline:none;min-width:0}
+.search-box button{border:0;background:none;font:600 12px var(--sans);letter-spacing:.24em;text-transform:uppercase}
+.blog-feat{display:grid;grid-template-columns:1.2fr 1fr;gap:0;margin-bottom:46px;text-decoration:none;background:var(--white);border:1px solid var(--line)}
+.blog-feat .img{min-height:440px}
+.blog-feat>div:last-child{padding:clamp(24px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.blog-feat h2{font-size:clamp(32px,3.6vw,52px)}
+.art{max-width:760px;margin:0 auto}
+.art .over{display:block;text-align:center}
+.art h1{font-size:clamp(40px,5vw,72px);margin:14px 0 14px;text-align:center}
+.art .by{text-align:center;color:var(--muted);font-size:14px}
+.art .img{aspect-ratio:3/2;margin:30px 0}
+.art p{font-size:18px;line-height:1.85;margin:0 0 20px}
+.art h2{font-size:32px;margin:34px 0 12px}
+.art blockquote{margin:34px 0;padding:0 0 0 24px;border-left:1px solid var(--aub);font:400 26px/1.4 var(--display);color:var(--aub)}
+.about-hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.about-hero>div:last-child{background:var(--olive-soft);padding:clamp(30px,6vw,90px);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.about-hero h1{font-size:clamp(42px,5.4vw,80px)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.steps div{border-top:1px solid var(--aub);padding-top:20px}
+.steps b{font:400 46px var(--display);color:var(--mauve)}
+.steps h3{font-size:24px;margin:8px 0}
+.steps p{color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:0;border:1px solid var(--line);background:var(--white)}
+.c-card{background:var(--mauve-soft);padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;gap:20px}
+.c-card h1{font-size:clamp(40px,4.6vw,68px)}
+.c-card .row small{display:block;font:600 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.form{padding:clamp(28px,4vw,56px);display:grid;gap:18px;grid-template-columns:1fr 1fr}
+.form label{display:grid;gap:6px;font:600 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{height:50px;border:0;border-bottom:1px solid var(--aub);background:none;padding:0 2px;font:400 16px var(--sans);letter-spacing:0;text-transform:none}
+.form textarea{height:120px;border:1px solid var(--line);padding:12px}
+.nf{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.nf>div:last-child{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:clamp(30px,6vw,90px);background:var(--white)}
+.nf .num{font:400 clamp(90px,12vw,170px)/.9 var(--display);color:var(--mauve)}
+.nf h1{font-size:clamp(30px,3.4vw,48px)}
+.nf p{color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:1180px){.nav{gap:22px}.grid4{grid-template-columns:repeat(2,1fr)}.rail{grid-template-columns:repeat(3,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}.mega-in{grid-template-columns:repeat(3,1fr)}.mega-tile{display:none}}
+@media (max-width:980px){
+  .nav{display:none}.burger{display:grid}.topbar .side{display:none}
+  .hd-top{height:70px}.logo b{font-size:30px}
+  .trip{grid-template-columns:1fr;height:auto}.trip .side-img{display:none}.trip .mid{min-height:78vh}
+  .look,.lf,.edit,.pdp,.cart-pg,.blog-feat,.about-hero,.contact,.col-hero,.nf{grid-template-columns:1fr}
+  .col-hero>.img{min-height:280px}.vals{grid-template-columns:1fr 1fr}.vals div:nth-child(3){border-left:0}.vals div:nth-child(n+3){border-top:1px solid var(--line)}
+  .revs,.posts,.steps{grid-template-columns:1fr}.col-body{grid-template-columns:1fr}.filt{display:none}
+  .buy{position:static}.summary{position:static}.ft-in{grid-template-columns:1fr 1fr}
+  .lf-r{grid-template-columns:1fr;justify-items:center;text-align:center}.fig{height:260px;width:96px}
+}
+@media (max-width:560px){
+  .logo b{font-size:25px;letter-spacing:.24em}.logo small{letter-spacing:.34em;font-size:8.5px}.tools .acct{display:none}
+  .rail{grid-template-columns:repeat(2,1fr)}.rail .lab{width:36px}.rail .lab span{font-size:17px}
+  .grid4,.grid3{gap:30px 10px}.card .t{font-size:15.5px}.sizes-bar{display:none}
+  .colours{gap:14px 18px}.ft-in{grid-template-columns:1fr}.form{grid-template-columns:1fr}.szs{grid-template-columns:repeat(5,1fr)}
+  .li{grid-template-columns:64px 1fr}.li .btn{grid-column:1/-1}.marq div{font-size:18px}
+  .search-box input{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="dz" role="toolbar" aria-label="Design preview pages">
+  <b>Noor · design preview</b>
+  <button data-go="home" aria-pressed="true">Home</button>
+  <button data-go="collection">Collection</button>
+  <button data-go="product">Product</button>
+  <button data-go="cart">Cart</button>
+  <button data-go="search">Search</button>
+  <button data-go="blog">Blog</button>
+  <button data-go="article">Article</button>
+  <button data-go="about">About</button>
+  <button data-go="contact">Contact</button>
+  <button data-go="404">404</button>
+  <label><input type="checkbox" id="showDawn"> Show section names</label>
+</div>
+
+<div class="topbar" data-dawn="announcement-bar">
+  <div class="wrap"><span class="side">Worldwide delivery</span><span class="mid">Free UK delivery over £60 · Free returns within 28 days</span><span class="side"><select aria-label="Currency"><option>GBP £</option><option>EUR €</option><option>USD $</option></select></span></div>
+</div>
+
+<header class="hd" data-dawn="header">
+  <div class="wrap">
+    <div class="hd-top">
+      <div class="tools l">
+        <button class="ico burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+        <a class="ico" href="#search" data-go="search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
+      </div>
+      <a class="logo" href="#home" data-go="home" aria-label="Sahar Studio home"><b>SAHAR</b><small>Modest by design</small></a>
+      <div class="tools">
+        <a class="ico acct" href="#contact" data-go="contact" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+        <a class="ico acct" href="#collection" data-go="collection" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></a>
+        <button class="ico" id="bagBtn" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span id="bagCount">0</span></button>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a class="new" href="#collection" data-go="collection">New in</a>
+      <button id="megaBtn" aria-expanded="false" aria-controls="mega">Shop</button>
+      <a href="#collection" data-go="collection">Abayas</a>
+      <a href="#collection" data-go="collection">Dresses</a>
+      <a href="#collection" data-go="collection">Hijabs</a>
+      <a href="#collection" data-go="collection">Co-ords</a>
+      <a href="#blog" data-go="blog">Journal</a>
+    </nav>
+  </div>
+  <div class="mega" id="mega" data-dawn="header (mega menu)">
+    <div class="wrap mega-in">
+      <div><h4>Clothing</h4><a href="#collection" data-go="collection">Abayas</a><a href="#collection" data-go="collection">Maxi dresses</a><a href="#collection" data-go="collection">Kaftans</a><a href="#collection" data-go="collection">Co-ord sets</a><a href="#collection" data-go="collection">Prayer wear</a></div>
+      <div><h4>Hijabs</h4><a href="#collection" data-go="collection">Chiffon</a><a href="#collection" data-go="collection">Jersey</a><a href="#collection" data-go="collection">Modal</a><a href="#collection" data-go="collection">Underscarves</a><a href="#collection" data-go="collection">Pins and magnets</a></div>
+      <div><h4>Edits</h4><a href="#collection" data-go="collection">Occasion</a><a href="#collection" data-go="collection">Workwear</a><a href="#collection" data-go="collection">Eid edit</a><a href="#home" data-jump="length">Length guide</a><a href="#collection" data-go="collection">Gift cards</a></div>
+      <a class="mega-tile" href="#collection" data-go="collection"><span class="img" style="background-image:url(img/h2.webp)"></span><span>The occasion edit</span></a>
+      <a class="mega-tile" href="#collection" data-go="collection"><span class="img" style="background-image:url(img/p-hijabs.webp)"></span><span>Everyday hijabs</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="page on" data-page="home">
+  <div class="trip" data-dawn="nx-triptych-hero">
+    <div class="img side-img" style="background-image:url(img/h1.webp)" role="img" aria-label="Woman in a black abaya"><a class="tag" href="#product" data-go="product">The Layla abaya</a></div>
+    <div class="img mid" style="background-image:url(img/h2.webp)">
+      <span class="over">Autumn · Winter 2026</span>
+      <h1>Grace in every layer</h1>
+      <p>Flowing abayas, easy maxi dresses and soft hijabs, cut to cover and made to move.</p>
+      <div class="hero-btns"><a class="btn light" href="#collection" data-go="collection">Shop new in</a><a class="btn ghost" href="#home" data-jump="lookSec">Shop the look</a></div>
+    </div>
+    <div class="img side-img" style="background-image:url(img/h3.webp)" role="img" aria-label="Woman in an olive co-ord set"><a class="tag" href="#product" data-go="product">The Mira co-ord</a></div>
+  </div>
+  <div class="marq" aria-hidden="true"><div><span>Abayas</span><span>Maxi dresses</span><span>Hijabs</span><span>Co-ord sets</span><span>Kaftans</span><span>Prayer wear</span><span>Abayas</span><span>Maxi dresses</span><span>Hijabs</span><span>Co-ord sets</span><span>Kaftans</span><span>Prayer wear</span></div></div>
+
+  <section class="sec" data-dawn="collection-list (nx label rail)">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">Shop by category</span><h2>The wardrobe</h2></div>
+      <div class="rail">
+        <a href="#collection" data-go="collection"><div class="img" style="background-image:url(img/h1.webp)"></div><span class="lab"><span>Abayas</span></span><span class="cnt">24</span></a>
+        <a href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-navy.webp)"></div><span class="lab"><span>Maxi dresses</span></span><span class="cnt">31</span></a>
+        <a href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-hijabs.webp)"></div><span class="lab"><span>Hijabs</span></span><span class="cnt">58</span></a>
+        <a href="#collection" data-go="collection"><div class="img" style="background-image:url(img/h3.webp)"></div><span class="lab"><span>Co-ords</span></span><span class="cnt">12</span></a>
+        <a href="#collection" data-go="collection"><div class="img" style="background-image:url(img/p-kaftan.webp)"></div><span class="lab"><span>Kaftans</span></span><span class="cnt">9</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">Just landed</span><h2>New this week</h2></div>
+      <div class="tabs" role="group" aria-label="Category"><button aria-pressed="true" data-t="all">All</button><button aria-pressed="false" data-t="abaya">Abayas</button><button aria-pressed="false" data-t="dress">Dresses</button><button aria-pressed="false" data-t="hijab">Hijabs</button></div>
+      <div class="grid4" id="newGrid"></div>
+      <div style="text-align:center;margin-top:44px"><a class="btn line" href="#collection" data-go="collection">View all</a></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" id="lookSec" data-dawn="nx-shop-the-look">
+    <div class="wrap look">
+      <div class="look-pic img" style="background-image:url(img/look.webp)" role="img" aria-label="Two women in modest outfits outdoors">
+        <button class="dot" aria-pressed="true" data-l="0" style="left:38%;top:20%">1</button>
+        <button class="dot" aria-pressed="false" data-l="1" style="left:26%;top:46%">2</button>
+        <button class="dot" aria-pressed="false" data-l="2" style="left:70%;top:46%">3</button>
+      </div>
+      <div class="look-side">
+        <span class="over">Shop the look</span><h2>Weekend in the city</h2><p>Tap a point on the photo, then add one piece or the whole look.</p>
+        <div class="look-items" id="lookItems"></div>
+        <div class="look-total"><span>The full look <b id="lookTotal" style="margin-left:10px">£0</b></span><button class="btn" id="lookAll">Add all to bag</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" id="length" data-dawn="nx-length-finder">
+    <div class="wrap"><div class="lf" id="lfHome"></div></div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="nx-colour-edit">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">Shop by colour</span><h2>This season's palette</h2></div>
+      <div class="colours">
+        <a href="#collection" data-go="collection"><i style="background:#1d1a1c"></i><b>Midnight</b><small>48 pieces</small></a>
+        <a href="#collection" data-go="collection"><i style="background:#C9A3B4"></i><b>Mauve</b><small>22 pieces</small></a>
+        <a href="#collection" data-go="collection"><i style="background:#D8C7B0"></i><b>Sand</b><small>31 pieces</small></a>
+        <a href="#collection" data-go="collection"><i style="background:#6E6B3A"></i><b>Olive</b><small>17 pieces</small></a>
+        <a href="#collection" data-go="collection"><i style="background:#2C3A5A"></i><b>Navy</b><small>19 pieces</small></a>
+        <a href="#collection" data-go="collection"><i style="background:#F3EDE4"></i><b>Ivory</b><small>26 pieces</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="image-with-text (editorial)">
+    <div class="edit">
+      <div class="img" style="background-image:url(img/fabric.webp)" role="img" aria-label="Close-up of soft crepe fabric"></div>
+      <div class="edit-t"><span class="over">Our fabrics</span><h2>Soft crepe that drapes, never clings.</h2><p>We choose breathable, opaque fabrics with a gentle weight, so every piece falls beautifully and feels easy from morning to night.</p><div><a class="btn light" href="#about" data-go="about">About our fabrics</a></div></div>
+    </div>
+  </section>
+
+  <div class="wrap" data-dawn="multicolumn (values)">
+    <div class="vals">
+      <div><svg viewBox="0 0 24 24"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/></svg><b>Free UK delivery</b><small>On orders over £60</small></div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0113.7-5.6L20 9M20 4v5h-5"/></svg><b>28-day returns</b><small>Free in the UK</small></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg><b>Lengths 52 to 60</b><small>Find your fit</small></div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/><circle cx="12" cy="12" r="9"/></svg><b>Worldwide shipping</b><small>Duties shown at checkout</small></div>
+    </div>
+  </div>
+
+  <section class="sec" data-dawn="multicolumn (sample reviews)">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">Kind words</span><h2>Sample reviews</h2></div>
+      <div class="revs">
+        <div class="rev"><span class="st">★★★★★</span><q>“The length guide was perfect. My abaya sits just above the floor in flats.”</q><small>Sample review · Layla abaya</small></div>
+        <div class="rev"><span class="st">★★★★★</span><q>“Beautiful drape and not see-through at all. I've ordered it in two colours.”</q><small>Sample review · Noor maxi dress</small></div>
+        <div class="rev"><span class="st">★★★★☆</span><q>“Soft jersey hijabs that stay put all day. Lovely colours.”</q><small>Sample review · Jersey hijab</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-blog">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">The journal</span><h2>Style notes</h2></div>
+      <div class="posts">
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/h1.webp)"></div><span class="over">Fit · 4 min</span><h3>How to find your abaya length</h3><p>Measure once, wear it right in flats or heels.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/p-hijabs.webp)"></div><span class="over">Styling · 5 min</span><h3>Five easy hijab styles</h3><p>From the school run to a wedding.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/fabric.webp)"></div><span class="over">Care · 3 min</span><h3>Caring for crepe and chiffon</h3><p>Keep colours rich and fabrics soft.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" data-dawn="newsletter">
+    <span class="over">The Sahar letter</span><h2>10% off your first order</h2><p>New collections, styling notes and early access to the Eid edit.</p>
+    <form onsubmit="event.preventDefault();toast('Thank you. Check your inbox for 10% off.')"><input type="email" required placeholder="Your email address" aria-label="Email address"><button>Sign up</button></form>
+  </section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" data-page="collection">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="nx-breadcrumbs"><a href="#home" data-go="home">Home</a> / Abayas</div>
+    <div class="col-hero" data-dawn="main-collection-banner"><div><span class="over">The collection</span><h1>Abayas</h1><p>Open, closed and kimono styles in crepe, linen and nida. Every abaya comes in lengths 52 to 60.</p><a class="ul" href="#home" data-jump="length" style="align-self:flex-start">Find your length</a></div><div class="img" style="background-image:url(img/h1.webp)"></div></div>
+    <div class="col-bar"><div class="chips" role="group" aria-label="Quick filter"><button aria-pressed="true" data-cf="all">All</button><button aria-pressed="false" data-cf="abaya">Abayas</button><button aria-pressed="false" data-cf="dress">Dresses</button><button aria-pressed="false" data-cf="hijab">Hijabs</button><button aria-pressed="false" data-cf="set">Co-ords</button></div><span id="colCount" style="font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">10 pieces</span><select aria-label="Sort"><option>Sort: Featured</option><option>Newest</option><option>Price, low to high</option><option>Price, high to low</option></select></div>
+    <div class="col-body" data-dawn="main-collection-product-grid">
+      <aside class="filt" aria-label="Filters">
+        <details open><summary>Colour</summary><div class="cdots"><i style="background:#1d1a1c" title="Midnight"></i><i style="background:#C9A3B4" title="Mauve"></i><i style="background:#D8C7B0" title="Sand"></i><i style="background:#6E6B3A" title="Olive"></i><i style="background:#2C3A5A" title="Navy"></i><i style="background:#F3EDE4" title="Ivory"></i></div></details>
+        <details open><summary>Size</summary><label><input type="checkbox">XS<em>6</em></label><label><input type="checkbox">S<em>9</em></label><label><input type="checkbox">M<em>10</em></label><label><input type="checkbox">L<em>9</em></label><label><input type="checkbox">XL<em>7</em></label></details>
+        <details open><summary>Length</summary><label><input type="checkbox">52"<em>8</em></label><label><input type="checkbox">54"<em>10</em></label><label><input type="checkbox">56"<em>10</em></label><label><input type="checkbox">58"<em>9</em></label><label><input type="checkbox">60"<em>6</em></label></details>
+        <details><summary>Fabric</summary><label><input type="checkbox">Crepe<em>5</em></label><label><input type="checkbox">Linen<em>2</em></label><label><input type="checkbox">Chiffon<em>3</em></label></details>
+        <details><summary>Price</summary><label><input type="checkbox">Under £40<em>4</em></label><label><input type="checkbox">£40 to £80<em>4</em></label><label><input type="checkbox">Over £80<em>2</em></label></details>
+      </aside>
+      <div><div class="grid3" id="colGrid"></div><div class="pager"><a class="on" href="#collection">1</a><a href="#collection">2</a><a href="#collection">3</a><a href="#collection">Next</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="page" data-page="product">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="nx-breadcrumbs"><a href="#home" data-go="home">Home</a> / <a href="#collection" data-go="collection">Abayas</a> / The Layla abaya</div>
+    <div class="pdp" data-dawn="main-product">
+      <div class="car">
+        <div class="slides" id="slides"></div>
+        <span class="count" id="slideCount">1 / 4</span>
+        <div class="arrows"><button data-sl="-1" aria-label="Previous image">←</button><button data-sl="1" aria-label="Next image">→</button></div>
+        <div class="mini" id="mini"></div>
+      </div>
+      <div class="buy">
+        <div><span class="over">Abayas · Crepe</span><h1 style="margin-top:10px">The Layla abaya</h1></div>
+        <div class="p" id="pPrice">£89<small>Free UK delivery</small></div>
+        <div><div class="optl">Colour <span id="colName">Midnight</span></div>
+          <div class="cols" id="cols"><button aria-pressed="true" data-c="Midnight" style="background:#1d1a1c" aria-label="Midnight"></button><button aria-pressed="false" data-c="Mauve" style="background:#C9A3B4" aria-label="Mauve"></button><button aria-pressed="false" data-c="Sand" style="background:#D8C7B0" aria-label="Sand"></button><button aria-pressed="false" data-c="Olive" style="background:#6E6B3A" aria-label="Olive"></button></div></div>
+        <div><div class="optl">Size <a href="#home" data-jump="length">Size guide</a></div>
+          <div class="szs" id="szs"><button aria-pressed="false">XS</button><button aria-pressed="false">S</button><button aria-pressed="true">M</button><button aria-pressed="false">L</button><button aria-pressed="false" disabled>XL</button></div></div>
+        <div><div class="optl">Length <a href="#lfPdp">Find my length</a></div>
+          <div class="szs" id="lens"><button aria-pressed="false">52"</button><button aria-pressed="false">54"</button><button aria-pressed="true">56"</button><button aria-pressed="false">58"</button><button aria-pressed="false">60"</button></div></div>
+        <div class="ctl" data-dawn="main-product (complementary products)"><h4>Complete the look</h4>
+          <label><input type="checkbox" data-ctl="hijab"><span class="img" style="background-image:url(img/p-hijabs.webp)"></span><span>Chiffon hijab, Midnight</span><b>£18</b></label>
+          <label><input type="checkbox" data-ctl="pins"><span class="img" style="background-image:url(img/p-pins.webp)"></span><span>Pearl pin and magnet set</span><b>£12</b></label></div>
+        <div class="addrow"><button class="btn addbtn" id="addBtn">Add to bag · £89</button><button class="wishbtn" aria-pressed="false" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button></div>
+        <div class="meta">
+          <div><svg viewBox="0 0 24 24"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/></svg>Order by 3pm for next-day UK delivery</div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0113.7-5.6L20 9M20 4v5h-5"/></svg>Free returns within 28 days</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Model is 168 cm and wears size S, length 54"</div>
+        </div>
+        <div class="acc">
+          <details open><summary>Details</summary><p>A flowing open abaya with wide sleeves, a soft shawl collar and hidden press studs. Wear it open over a maxi dress, or closed.</p></details>
+          <details><summary>Fabric and care</summary><div class="fabric"><span class="img" style="background-image:url(img/fabric.webp)"></span><p style="margin:0">Soft, opaque crepe with a gentle drape. Cool hand wash, hang to dry, warm iron on the reverse.</p></div></details>
+          <details><summary>Delivery and returns</summary><p>Free UK delivery over £60. Free returns within 28 days. Worldwide delivery with duties shown at checkout.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="sec" id="lfPdp" data-dawn="nx-length-finder"><div class="wrap"><div class="lf" id="lfPdpBox"></div></div></section>
+  <section class="sec" style="padding-top:0" data-dawn="related-products"><div class="wrap"><div class="sec-head"><span class="over">You may also like</span><h2>Wear it with</h2></div><div class="grid4" id="related"></div></div></section>
+  <div class="sticky-atc" id="sticky"><b style="font:400 17px var(--display)">The Layla abaya</b><span id="stickyPrice" style="color:var(--muted)">£89</span><button class="btn" id="stickyAdd">Add to bag</button></div>
+</section>
+
+<!-- CART -->
+<section class="page" data-page="cart">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-go="home">Home</a> / Bag</div>
+    <h1 style="font-size:clamp(40px,5vw,72px);margin-bottom:26px">Your bag</h1>
+    <div class="cart-pg" data-dawn="main-cart-items + main-cart-footer">
+      <div><div class="ship" id="shipPage"></div><div id="cartLines"></div><div style="margin-top:40px"><span class="over">Wear it with</span><div class="grid3" id="upsell" style="margin-top:18px"></div></div></div>
+      <aside class="summary"><div class="r"><span>Subtotal</span><span id="sub">£0</span></div><div class="r"><span>Delivery</span><span id="del">£4.95</span></div><label><input type="checkbox"> Gift wrap with a handwritten note (free)</label><div class="r t"><span>Total</span><span id="tot">£0</span></div><button class="btn" onclick="toast('This is a design preview: checkout is handled by Shopify.')">Checkout</button><span style="color:var(--muted);text-align:center;font-size:13px">Taxes included. Shipping calculated at checkout.</span></aside>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="page" data-page="search">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-go="home">Home</a> / Search</div>
+    <div class="search-box" data-dawn="main-search"><input value="maxi dress" aria-label="Search"><button>Search</button></div>
+    <div class="tabs" style="justify-content:flex-start"><button aria-pressed="true">Products (4)</button><button aria-pressed="false">Journal (2)</button><button aria-pressed="false">Pages (1)</button></div>
+    <div class="grid4" id="searchGrid"></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="page" data-page="blog">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-go="home">Home</a> / Journal</div>
+    <div class="sec-head" style="margin-top:6px"><span class="over">The journal</span><h2>Style notes</h2></div>
+    <div data-dawn="main-blog">
+      <a class="blog-feat" href="#article" data-go="article"><div class="img" style="background-image:url(img/h1.webp)"></div><div><span class="over">Featured · Fit</span><h2>How to find your abaya length</h2><p style="color:var(--muted)">Measure once, then wear it right in flats or heels, with a printable length chart.</p><span class="ul" style="align-self:flex-start">Read the story</span></div></a>
+      <div class="tabs"><button aria-pressed="true">All</button><button aria-pressed="false">Fit</button><button aria-pressed="false">Styling</button><button aria-pressed="false">Care</button><button aria-pressed="false">Occasions</button></div>
+      <div class="posts">
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/p-hijabs.webp)"></div><span class="over">Styling · 5 min</span><h3>Five easy hijab styles</h3><p>From the school run to a wedding.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/fabric.webp)"></div><span class="over">Care · 3 min</span><h3>Caring for crepe and chiffon</h3><p>Keep colours rich and fabrics soft.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/h2.webp)"></div><span class="over">Occasions · 6 min</span><h3>What to wear to a summer wedding</h3><p>Light layers in soft colours.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/h3.webp)"></div><span class="over">Styling · 4 min</span><h3>One co-ord, three ways</h3><p>Office, weekend and dinner.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/p-kaftan.webp)"></div><span class="over">Occasions · 5 min</span><h3>Your Eid outfit checklist</h3><p>Plan early, wear it with ease.</p></a>
+        <a class="post" href="#article" data-go="article"><div class="img" style="background-image:url(img/look.webp)"></div><span class="over">Behind the scenes · 4 min</span><h3>Making the new collection</h3><p>From fabric swatch to final fit.</p></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="page" data-page="article">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-go="home">Home</a> / <a href="#blog" data-go="blog">Journal</a> / Abaya length</div>
+    <article class="art" data-dawn="main-article">
+      <span class="over">Fit · 4 min read</span>
+      <h1>How to find your abaya length</h1>
+      <p class="by">By the Sahar studio · 9 October 2026</p>
+      <div class="img" style="background-image:url(img/h1.webp)"></div>
+      <p>Abaya lengths are measured in inches, from the top of the shoulder to the hem. The right length depends on your height and on the shoes you wear most.</p>
+      <h2>Measure in one minute</h2>
+      <p>Stand straight in the shoes you'll wear. Ask someone to measure from the top of your shoulder, next to the neck, to the floor. Take away 1 to 2 inches so the hem just clears the ground.</p>
+      <blockquote>Between two lengths? Choose the longer one for heels and the shorter one for flats.</blockquote>
+      <p>Our length finder does the maths for you, and every abaya in the collection comes in 52, 54, 56, 58 and 60 inches.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn" href="#home" data-jump="length">Use the length finder</a><a class="btn line" href="#collection" data-go="collection">Shop abayas</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" data-page="about">
+  <div class="about-hero" data-dawn="image-with-text (about)">
+    <div class="img" style="background-image:url(img/look.webp)"></div>
+    <div><span class="over">Our story</span><h1>Modest by design, made to be lived in.</h1><p style="color:#5d4a54;font-size:17px">Sahar began with a simple wish: clothes that cover with grace, feel easy all day and still look special. We design every piece in our London studio.</p></div>
+  </div>
+  <section class="sec" data-dawn="multicolumn (how we make)">
+    <div class="wrap">
+      <div class="sec-head"><span class="over">How we work</span><h2>Thoughtfully made</h2></div>
+      <div class="steps">
+        <div><b>01</b><h3>Fabric first</h3><p>Opaque, breathable fabrics with a soft drape, tested for every season.</p></div>
+        <div><b>02</b><h3>Real fit</h3><p>Every style is fitted on women of different heights, in five lengths.</p></div>
+        <div><b>03</b><h3>Small runs</h3><p>We make in small batches to avoid waste and keep quality high.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="edit"><div class="img" style="background-image:url(img/fabric.webp)"></div><div class="edit-t"><span class="over">Visit us</span><h2>The London studio</h2><p>Try on the collection and get your length measured. By appointment, Monday to Saturday.</p><div><a class="btn light" href="#contact" data-go="contact">Book a visit</a></div></div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" data-page="contact">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-go="home">Home</a> / Contact</div>
+    <div class="contact" data-dawn="contact-form">
+      <div class="c-card"><span class="over">Customer care</span><h1>We'd love to help.</h1><p style="color:#5d4a54">Questions about sizing, an order or a return? We reply within one working day.</p>
+        <div class="row"><small>Email</small>hello@sahar.example</div>
+        <div class="row"><small>Hours</small>Mon to Sat, 9am to 6pm</div>
+        <div class="row"><small>Studio</small>East London (demo address)</div></div>
+      <form class="form" onsubmit="event.preventDefault();toast('Thank you. We will reply within one working day.')">
+        <label>Name<input required></label><label>Email<input type="email" required></label>
+        <label class="full">Order number (optional)<input></label>
+        <label class="full">Topic<select><option>Sizing and length</option><option>My order</option><option>Returns</option><option>Something else</option></select></label>
+        <label class="full">Message<textarea required></textarea></label>
+        <div class="full"><button class="btn">Send message</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 404 -->
+<section class="page" data-page="404">
+  <div class="nf" data-dawn="main-404">
+    <div class="img" style="background-image:url(img/h2.webp)"></div>
+    <div><span class="num">404</span><h1>This page has slipped away.</h1><p>It may have moved or sold out. Let's find you something lovely instead.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#collection" data-go="collection">Shop new in</a><a class="btn line" href="#home" data-go="home">Back home</a></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft" data-dawn="footer">
+  <div class="wrap">
+    <div class="ft-in">
+      <div><a class="logo" href="#home" data-go="home"><b>SAHAR</b><small>Modest by design</small></a><p style="margin-top:16px;max-width:24em">Abayas, maxi dresses and hijabs, designed in London. A demo store for the Noor theme.</p></div>
+      <div><h4>Shop</h4><a href="#collection" data-go="collection">New in</a><a href="#collection" data-go="collection">Abayas</a><a href="#collection" data-go="collection">Dresses</a><a href="#collection" data-go="collection">Hijabs</a></div>
+      <div><h4>Help</h4><a href="#contact" data-go="contact">Contact</a><a href="#contact" data-go="contact">Delivery</a><a href="#contact" data-go="contact">Returns</a><a href="#home" data-jump="length">Length guide</a></div>
+      <div><h4>Follow</h4><a href="#home">Instagram</a><a href="#home">TikTok</a><a href="#home">Pinterest</a></div>
+    </div>
+    <div class="ft-low"><span>© 2026 Sahar Studio. Demo store for the Noor theme.</span><span class="pays"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>KLARNA</span></span></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="veil" data-close></div>
+  <aside class="panel" role="dialog" aria-label="Your bag">
+    <div class="dh"><h3>Your bag</h3><button class="ico" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="db"><div class="ship" id="shipDrawer" style="padding:16px 0 4px"></div><div id="drawerLines"></div></div>
+    <div class="df"><div style="display:flex;justify-content:space-between;font-weight:600"><span>Subtotal</span><span id="drawerSub">£0</span></div><button class="btn" onclick="toast('This is a design preview: checkout is handled by Shopify.')">Checkout</button><a class="btn line" href="#cart" data-go="cart" data-close>View bag</a></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const C={Midnight:"#1d1a1c",Mauve:"#C9A3B4",Sand:"#D8C7B0",Olive:"#6E6B3A",Navy:"#2C3A5A",Ivory:"#F3EDE4"};
+const P=[
+  {id:"layla",name:"The Layla abaya",cat:"abaya",price:89,img:"h1",alt:"p-sand",cols:["Midnight","Mauve","Sand","Olive"],badge:"Best seller",sizes:true},
+  {id:"noor",name:"Noor maxi dress",cat:"dress",price:72,img:"h2",alt:"look",cols:["Mauve","Navy","Ivory"],badge:"New",sizes:true},
+  {id:"mira",name:"Mira co-ord set",cat:"set",price:95,img:"h3",alt:"look",cols:["Olive","Sand"],sizes:true},
+  {id:"chiffon",name:"Chiffon hijab",cat:"hijab",price:18,img:"p-hijabs",alt:"fabric",cols:["Midnight","Mauve","Sand","Olive","Navy","Ivory"]},
+  {id:"sand",name:"Amal kimono abaya",cat:"abaya",price:98,was:120,img:"p-sand",alt:"h1",cols:["Sand","Ivory"],badge:"Sale",sizes:true},
+  {id:"kaftan",name:"Zahra printed kaftan",cat:"dress",price:84,img:"p-kaftan",alt:"look",cols:["Mauve","Olive"],badge:"New",sizes:true},
+  {id:"navy",name:"Iman tiered maxi",cat:"dress",price:68,img:"p-navy",alt:"h2",cols:["Navy","Midnight"],sizes:true},
+  {id:"jersey",name:"Premium jersey hijab",cat:"hijab",price:15,img:"p-hijabs",alt:"h3",cols:["Sand","Olive","Midnight"]},
+  {id:"pins",name:"Pearl pin and magnet set",cat:"hijab",price:12,img:"p-pins",alt:"p-hijabs",cols:["Ivory"]},
+  {id:"linen",name:"Rania linen abaya",cat:"abaya",price:92,img:"p-sand",alt:"fabric",cols:["Olive","Sand","Ivory"],sizes:true},
+];
+const gbp=n=>"£"+(Math.round(n*100)/100).toLocaleString("en-GB",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>[...el.querySelectorAll(s)];
+const cart=[];let tab="all",cf="all";
+
+function card(p){
+  const badge=p.badge?`<span class="badge ${p.badge==="Sale"?"sale":p.badge==="New"?"new":""}">${p.badge}</span>`:"";
+  const price=p.was?`${gbp(p.price)}<s>${gbp(p.was)}</s>`:gbp(p.price);
+  const bar=p.sizes?`<div class="sizes-bar"><p>Quick add · choose a size</p><div>${["XS","S","M","L","XL"].map(s=>`<button data-add="${p.id}" data-opt="Size ${s}">${s}</button>`).join("")}</div></div>`:`<div class="sizes-bar"><div><button data-add="${p.id}" style="min-width:160px">Add to bag</button></div></div>`;
+  return `<div class="card" data-cat="${p.cat}">
+    <div class="media">${badge}<button class="wish" aria-pressed="false" aria-label="Save ${p.name}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+      <a href="#product" data-go="product" aria-label="${p.name}"><img class="main" src="img/${p.img}.webp" alt="${p.name}" loading="lazy"><img class="alt" src="img/${p.alt}.webp" alt="" loading="lazy"></a>${bar}</div>
+    <a class="t" href="#product" data-go="product">${p.name}</a><span class="price">${price}</span>
+    <span class="sw">${p.cols.slice(0,4).map((c,i)=>`<i class="${i?"":"on"}" style="background:${C[c]}" title="${c}"></i>`).join("")}<small>${p.cols.length>1?p.cols.length+" colours":p.cols[0]}</small></span></div>`;
+}
+function renderGrids(){
+  $("#newGrid").innerHTML=P.filter(p=>tab==="all"||p.cat===tab).slice(0,4).map(card).join("");
+  const list=P.filter(p=>cf==="all"||p.cat===cf);const html=list.map(card);
+  if(cf==="all")html.splice(4,0,`<div class="promo"><span class="over">Length guide</span><h3>Every abaya in five lengths</h3><p>Find yours in under a minute.</p><div><a class="btn light" href="#home" data-jump="length">Find my length</a></div></div>`);
+  $("#colGrid").innerHTML=html.join("");$("#colCount").textContent=list.length+" pieces";
+  $("#searchGrid").innerHTML=[P[1],P[6],P[5],P[2]].map(card).join("");
+  $("#related").innerHTML=[P[3],P[8],P[1],P[2]].map(card).join("");
+  $("#upsell").innerHTML=[P[3],P[8],P[7]].map(card).join("");
+}
+
+// pages
+function go(page,jump){
+  $$(".page").forEach(p=>p.classList.toggle("on",p.dataset.page===page));
+  $$(".dz [data-go]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.go===page));
+  $("#mega").classList.remove("open");$("#megaBtn").setAttribute("aria-expanded","false");
+  if(location.hash.slice(1)!==page)history.replaceState(null,"","#"+page);
+  $("#sticky").classList.remove("show");
+  if(jump){setTimeout(()=>document.getElementById(jump)?.scrollIntoView({behavior:"smooth"}),30);}else window.scrollTo(0,0);
+  observe();
+}
+document.addEventListener("click",e=>{
+  const j=e.target.closest("[data-jump]");
+  if(j&&!j.dataset.go){e.preventDefault();go("home",j.dataset.jump);return;}
+  const t=e.target.closest("[data-go]");
+  if(t){e.preventDefault();go(t.dataset.go,t.dataset.jump);if(t.hasAttribute("data-close"))closeDrawer();}
+});
+$("#showDawn").addEventListener("change",e=>document.body.classList.toggle("show-dawn",e.target.checked));
+$("#megaBtn").addEventListener("click",()=>{const m=$("#mega");m.classList.toggle("open");$("#megaBtn").setAttribute("aria-expanded",m.classList.contains("open"));});
+$("#burger").addEventListener("click",()=>$("#mega").classList.toggle("open"));
+$$("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;$$("[data-t]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderGrids();}));
+$$("[data-cf]").forEach(b=>b.addEventListener("click",()=>{cf=b.dataset.cf;$$("[data-cf]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderGrids();}));
+$$(".tabs").forEach(c=>c.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.dataset.t)return;$$("button",c).forEach(x=>x.setAttribute("aria-pressed",x===b));}));
+
+// cart
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2400);}
+function add(id,o={}){
+  const p=P.find(x=>x.id===id);const key=id+(o.opt||"");
+  const l=cart.find(x=>x.key===key);if(l)l.q+=o.q||1;else cart.push({key,p,q:o.q||1,opt:o.opt,price:o.price||p.price});
+  const c=$("#bagCount");c.textContent=cart.reduce((a,x)=>a+x.q,0);c.classList.add("bump");setTimeout(()=>c.classList.remove("bump"),300);
+  renderCart();
+}
+function shipBar(s){const left=Math.max(0,60-s);return `${left?`Spend ${gbp(left)} more for free UK delivery`:"You have free UK delivery"}<i><b style="width:${Math.min(100,s/60*100)}%"></b></i>`;}
+function lineHtml(l,i){return `<div class="cline"><div class="img" style="background-image:url(img/${l.p.img}.webp)"></div><div><b>${l.p.name}</b><small>${l.opt||l.p.cols[0]}</small><div class="qq"><button data-dq="${i}" data-d="-1" aria-label="Less">−</button>${l.q}<button data-dq="${i}" data-d="1" aria-label="More">+</button></div></div><div style="text-align:right">${gbp(l.price*l.q)}<br><button class="rm" data-rm="${i}">Remove</button></div></div>`;}
+function renderCart(){
+  const s=cart.reduce((a,l)=>a+l.price*l.q,0);
+  $("#drawerLines").innerHTML=cart.length?cart.map(lineHtml).join(""):`<p style="padding:24px 0;color:var(--muted)">Your bag is empty.</p>`;
+  $("#cartLines").innerHTML=cart.length?cart.map(lineHtml).join(""):`<p style="padding:20px 0;color:var(--muted)">Your bag is empty.</p>`;
+  $("#drawerSub").textContent=$("#sub").textContent=gbp(s);
+  const d=s>=60||!s?0:4.95;$("#del").textContent=d?gbp(d):"Free";$("#tot").textContent=gbp(s+d);
+  $("#shipDrawer").innerHTML=$("#shipPage").innerHTML=shipBar(s);
+}
+function openDrawer(){$("#drawer").classList.add("open");$("#drawer").setAttribute("aria-hidden","false");}
+function closeDrawer(){$("#drawer").classList.remove("open");$("#drawer").setAttribute("aria-hidden","true");}
+$("#bagBtn").addEventListener("click",openDrawer);
+$$("#drawer [data-close]").forEach(b=>b.addEventListener("click",closeDrawer));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]");if(a){add(a.dataset.add,{opt:a.dataset.opt});openDrawer();return;}
+  const w=e.target.closest(".wish,.wishbtn");if(w){w.setAttribute("aria-pressed",w.getAttribute("aria-pressed")!=="true");return;}
+  const d=e.target.closest("[data-dq]");if(d){const l=cart[+d.dataset.dq];l.q=Math.max(1,l.q+ +d.dataset.d);renderCart();$("#bagCount").textContent=cart.reduce((x,y)=>x+y.q,0);return;}
+  const r=e.target.closest("[data-rm]");if(r){cart.splice(+r.dataset.rm,1);renderCart();$("#bagCount").textContent=cart.reduce((x,y)=>x+y.q,0);}
+});
+
+// shop the look
+const LOOK=[P[3],P[0],P[1]];
+function renderLook(sel=0){
+  $("#lookItems").innerHTML=LOOK.map((p,i)=>`<div class="li ${i===sel?"on":""}"><div class="img" style="background-image:url(img/${p.img}.webp)"></div><div><b>${i+1}. ${p.name}</b><small>${gbp(p.price)} · ${p.cols.length} colours</small></div><button class="btn line" data-add="${p.id}">Add</button></div>`).join("");
+  $("#lookTotal").textContent=gbp(LOOK.reduce((a,p)=>a+p.price,0));
+}
+$$(".dot").forEach(d=>d.addEventListener("click",()=>{$$(".dot").forEach(x=>x.setAttribute("aria-pressed",x===d));renderLook(+d.dataset.l);}));
+$("#lookAll").addEventListener("click",()=>{LOOK.forEach(p=>add(p.id,{opt:"From the look"}));openDrawer();});
+
+// length finder: abaya length (in) is about shoulder-to-floor, i.e. 0.82 x height, minus 1 in, plus 1.5 in for heels
+const LENS=[[52,150,157],[54,158,164],[56,165,171],[58,172,178],[60,179,190]];
+function lf(el){
+  el.innerHTML=`<div class="lf-l"><span class="over">Length finder</span><h2>Find your perfect length</h2><p class="lead">Tell us your height and the shoes you wear most. We'll suggest the abaya length that just clears the floor.</p>
+    <div class="unit" role="group" aria-label="Units"><button aria-pressed="true" data-u="cm">cm</button><button aria-pressed="false" data-u="ft">ft / in</button></div>
+    <label class="fld"><span>Your height <em data-o="h">165 cm</em></span><input type="range" min="145" max="190" value="165" data-h></label>
+    <div class="fld"><span>Usually wearing</span><div class="shoe" data-shoe><button aria-pressed="true" data-v="0">Flats or trainers</button><button aria-pressed="false" data-v="1.5">Small heel</button><button aria-pressed="false" data-v="3">High heel</button></div></div>
+    <div><a class="btn" href="#collection" data-go="collection">Shop abayas</a></div></div>
+    <div class="lf-r"><div class="fig" aria-hidden="true"><svg viewBox="0 0 100 300"><circle cx="50" cy="24" r="16" fill="#3A1E2E"/><path d="M50 42c-16 0-26 10-30 24L8 286h84L80 66c-4-14-14-24-30-24z" fill="#3A1E2E" opacity=".9"/></svg><div class="hem" data-o="hem"><span data-o="hemTxt">56"</span></div></div>
+    <div class="lf-res" aria-live="polite"><small>Your length</small><b data-o="len">56"</b><p data-o="msg">Sits just above the floor in flats.</p>
+    <table><tr><th>Length</th><th>Height</th></tr>${LENS.map(l=>`<tr data-r="${l[0]}"><td>${l[0]}"</td><td>${l[1]}–${l[2]} cm · ${ft(l[1])} to ${ft(l[2])}</td></tr>`).join("")}</table></div></div>`;
+  let unit="cm",shoe=0;
+  const upd=()=>{const h=+$("[data-h]",el).value;const adj=h+shoe*2.54;let pick=LENS.find(l=>adj>=l[1]&&adj<=l[2])||(adj<150?LENS[0]:LENS[LENS.length-1]);
+    $('[data-o=h]',el).textContent=unit==="cm"?h+" cm":ft(h);$('[data-o=len]',el).textContent=pick[0]+'"';$('[data-o=hemTxt]',el).textContent=pick[0]+'"';
+    $('[data-o=msg]',el).textContent=shoe?`Allows for a ${shoe>2?"high":"small"} heel, so the hem won't sit too short.`:"Sits just above the floor in flats.";
+    $('[data-o=hem]',el).style.top=(92+(pick[0]-52)*.4)+"%";
+    $$("[data-r]",el).forEach(r=>r.classList.toggle("on",+r.dataset.r===pick[0]));};
+  $$("[data-u]",el).forEach(b=>b.addEventListener("click",()=>{unit=b.dataset.u;$$("[data-u]",el).forEach(x=>x.setAttribute("aria-pressed",x===b));upd();}));
+  $$("[data-shoe] button",el).forEach(b=>b.addEventListener("click",()=>{shoe=+b.dataset.v;$$("[data-shoe] button",el).forEach(x=>x.setAttribute("aria-pressed",x===b));upd();}));
+  $("[data-h]",el).addEventListener("input",upd);upd();
+}
+function ft(cm){const t=Math.round(cm/2.54);return Math.floor(t/12)+"'"+(t%12)+'"';}
+lf($("#lfHome"));lf($("#lfPdpBox"));
+
+// product page
+const gal=["h1","p-sand","look","fabric"];
+$("#slides").innerHTML=gal.map((g,i)=>`<div class="img" style="background-image:url(img/${g}.webp)" role="img" aria-label="Product image ${i+1}"></div>`).join("");
+$("#mini").innerHTML=gal.map((g,i)=>`<button aria-current="${i===0}" aria-label="Image ${i+1}" data-mi="${i}" style="background-image:url(img/${g}.webp)"></button>`).join("");
+let slide=0;
+function toSlide(i){slide=(i+gal.length)%gal.length;const s=$("#slides");s.scrollTo({left:s.clientWidth*slide,behavior:"smooth"});$("#slideCount").textContent=`${slide+1} / ${gal.length}`;$$("#mini button").forEach((b,n)=>b.setAttribute("aria-current",n===slide));}
+$$("[data-sl]").forEach(b=>b.addEventListener("click",()=>toSlide(slide+ +b.dataset.sl)));
+$("#mini").addEventListener("click",e=>{const b=e.target.closest("[data-mi]");if(b)toSlide(+b.dataset.mi);});
+$("#slides").addEventListener("scroll",()=>{const s=$("#slides");const i=Math.round(s.scrollLeft/s.clientWidth);if(i!==slide){slide=i;$("#slideCount").textContent=`${slide+1} / ${gal.length}`;$$("#mini button").forEach((b,n)=>b.setAttribute("aria-current",n===slide));}},{passive:true});
+let col="Midnight";
+$$("#cols button").forEach(b=>b.addEventListener("click",()=>{col=b.dataset.c;$$("#cols button").forEach(x=>x.setAttribute("aria-pressed",x===b));$("#colName").textContent=col;}));
+$$("#szs button,#lens button").forEach(b=>b.addEventListener("click",()=>{if(b.disabled)return;$$("button",b.parentElement).forEach(x=>x.setAttribute("aria-pressed",x===b));}));
+function totalPdp(){return 89+($('[data-ctl=hijab]').checked?18:0)+($('[data-ctl=pins]').checked?12:0);}
+$$("[data-ctl]").forEach(c=>c.addEventListener("change",()=>{$("#addBtn").textContent=`Add to bag · ${gbp(totalPdp())}`;$("#stickyPrice").textContent=gbp(totalPdp());}));
+function pdpAdd(btn){
+  const size=$("#szs [aria-pressed=true]").textContent,len=$("#lens [aria-pressed=true]").textContent;
+  add("layla",{opt:`${col} · ${size} · ${len}`});
+  if($('[data-ctl=hijab]').checked)add("chiffon",{opt:"Midnight"});
+  if($('[data-ctl=pins]').checked)add("pins");
+  const t=btn.textContent;btn.classList.add("done");btn.textContent="Added";setTimeout(()=>{btn.classList.remove("done");btn.textContent=t;},1400);openDrawer();
+}
+$("#addBtn").addEventListener("click",e=>pdpAdd(e.currentTarget));
+$("#stickyAdd").addEventListener("click",e=>pdpAdd(e.currentTarget));
+window.addEventListener("scroll",()=>{const on=$('[data-page=product]').classList.contains("on");const r=$("#addBtn").getBoundingClientRect();$("#sticky").classList.toggle("show",on&&r.bottom<0&&window.innerWidth<980);},{passive:true});
+
+// reveal
+let io;
+function observe(){
+  if(!("IntersectionObserver" in window)){$$(".reveal").forEach(r=>r.classList.add("in"));return;}
+  io?.disconnect();io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}}),{threshold:.12});
+  $$(".page.on .reveal:not(.in)").forEach(r=>io.observe(r));
+}
+$$(".sec-head,.rail,.look,.lf,.colours,.revs,.posts,.steps").forEach(el=>el.classList.add("reveal"));
+renderGrids();renderCart();renderLook();
+const start=location.hash.slice(1);
+go(["home","collection","product","cart","search","blog","article","about","contact","404"].includes(start)?start:"home");
+window.go=go;
+</script>
+</body>
+</html>
